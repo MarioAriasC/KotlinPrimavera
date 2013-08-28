@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[KotlinPrimavera] %d{HH:mm:ss.SSS} [%thread] %level %logger{32} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="org.springframework" level="INFO"/>
+    <!--<logger name="org.springframework.security" level="DEBUG"/>-->
+    <!--<logger name="org.springframework.jdbc" level="DEBUG"/>-->
+    <logger name="org.kotlinprimavera" level="DEBUG"/>
+    <!--<logger name="org.springframework.web" level="DEBUG"/>-->
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <!--<appender-ref ref="logfile"/>-->
+    </root>
+</configuration>

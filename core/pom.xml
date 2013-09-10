@@ -8,24 +8,10 @@
         <artifactId>parent</artifactId>
         <version>0.2_M6</version>
     </parent>
-    <artifactId>jdbc</artifactId>
-    <name>KotlinPrimavera JDBC Module</name>
+    <artifactId>core</artifactId>
+    <name>KotlinPrimavera Core Module</name>
     <packaging>jar</packaging>
     <version>0.2_M6</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.3.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>

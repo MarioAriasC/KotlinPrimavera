@@ -18,19 +18,19 @@ public fun Map<String, Any>.toSqlParameterSource(): MapSqlParameterSource {
     return MapSqlParameterSource(this)
 }
 
-public fun MapSqlParameterSource.set(paramName: String, value: Any) {
+public fun MapSqlParameterSource.set(paramName: String, value: Any?) {
     this.addValue(paramName, value)
 }
 
-public fun MapSqlParameterSource.set(paramName: String, sqlType: Int value: Any) {
+public fun MapSqlParameterSource.set(paramName: String, sqlType: Int value: Any?) {
     this.addValue(paramName, value, sqlType)
 }
 
-public fun MapSqlParameterSource.set(paramName: String, sqlType: Int, typeName: String, value: Any) {
+public fun MapSqlParameterSource.set(paramName: String, sqlType: Int, typeName: String, value: Any?) {
     this.addValue(paramName, value, sqlType, typeName)
 }
 
-public fun MapSqlParameterSource.addValues(vararg args: Pair<String, Any>): MapSqlParameterSource {
+public fun MapSqlParameterSource.addValues(vararg args: Pair<String, Any?>): MapSqlParameterSource {
     return this.addValues(mapOf(*args))!!
 }
 

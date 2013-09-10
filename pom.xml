@@ -10,7 +10,10 @@
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <modules>
+        <module>context</module>
+        <module>core</module>
         <module>jdbc</module>
+        <module>webmvc</module>
     </modules>
     <properties>
         <spring.version>3.2.4.RELEASE</spring.version>

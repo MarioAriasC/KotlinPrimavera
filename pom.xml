@@ -104,4 +104,11 @@
             <version>0.2.1_M6</version>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>bintray-marioariasc-KotlinPrimavera-KotlinPrimavera</id>
+            <name>marioariasc-KotlinPrimavera-KotlinPrimavera</name>
+            <url>https://api.bintray.com/maven/marioariasc/KotlinPrimavera/KotlinPrimavera</url>
+        </repository>
+    </distributionManagement>
 </project>

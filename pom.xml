@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2_M6</version>
+    <version>0.2_M6.1</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <modules>
@@ -33,7 +33,7 @@
     </modules>
     <properties>
         <spring.version>3.2.4.RELEASE</spring.version>
-        <kotlin.version>0.6.69</kotlin.version>
+        <kotlin.version>0.6.602</kotlin.version>
         <slf4j.version>1.7.0</slf4j.version>
     </properties>
     <repositories>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.2.1_M6</version>
+            <version>0.2.1_M6.1</version>
         </dependency>
     </dependencies>
     <distributionManagement>

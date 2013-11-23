@@ -36,21 +36,21 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     val python = "python"
     val description = "description"
 
-    val mapperFunction = {(rs: ResultSet?, i: Int)->
-        rs!!.build {
+    val mapperFunction = {(rs: ResultSet, i: Int) ->
+        rs.build {
             TestBean(int["id"]!!,
                     string["description"]!!,
                     date["create_date"]!!)
         }
     }
 
-    val action = {(st: PreparedStatement?)->
+    val action = {(st: PreparedStatement?) ->
         val rs = st!!.executeQuery()
         rsFunction(rs)
     }
 
-    val rsFunction = {(rs: ResultSet?)->
-        rs!!.build{
+    val rsFunction = {(rs: ResultSet) ->
+        rs.build {
             next()
             int["id"]
         }
@@ -60,7 +60,7 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
         return countRowsInTable("test_bean")
     }
 
-    protected fun validateEmptyResult(body: ()->Unit) {
+    protected fun validateEmptyResult(body: () -> Unit) {
         try{
             body()
             fail("Function $body don't throw a exception")

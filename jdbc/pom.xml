@@ -50,7 +50,12 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
-
+                <configuration>
+                    <annotationPaths>
+                        <annotationPath>${project.basedir}/src/main/resources/org/springframework/jdbc/core/annotations.xml</annotationPath>
+                        <annotationPath>${project.basedir}/src/main/resources/org/springframework/jdbc/core/namedparam/annotations.xml</annotationPath>
+                    </annotationPaths>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>

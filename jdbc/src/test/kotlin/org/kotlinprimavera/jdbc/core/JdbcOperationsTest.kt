@@ -43,8 +43,8 @@ public class JdbcOperationsTest : JdbcTestBase(){
     private val insert = "insert into test_bean(description) values(?)"
 
 
-    private val statementCreator = {(con: Connection?)->
-        val st = con!!.prepareStatement(selectIdByDescription)
+    private val statementCreator: (Connection) -> PreparedStatement = { con ->
+        val st = con.prepareStatement(selectIdByDescription)
         st!!.arguments {
             string[1] = python
         }
@@ -54,9 +54,9 @@ public class JdbcOperationsTest : JdbcTestBase(){
     [Autowired] var template: JdbcTemplate? = null
 
     [Test] fun testExecute() {
-        template!!.execute{(connection: Connection?) ->
-            val prepareStatement = connection!!.prepareStatement(selectIdByDescription)!!
-            prepareStatement.arguments{
+        template!!.execute {(connection: Connection) ->
+            val prepareStatement = connection.prepareStatement(selectIdByDescription)!!
+            prepareStatement.arguments {
                 string[1] = python
             }
             val resultSet = prepareStatement.executeQuery()
@@ -67,9 +67,9 @@ public class JdbcOperationsTest : JdbcTestBase(){
             }
         }
 
-        template!!.execute{(statement: Statement?) ->
-            val resultSet = statement!!.executeQuery(select1)
-            resultSet.build{
+        template!!.execute {(statement: Statement) ->
+            val resultSet = statement.executeQuery(select1)
+            resultSet.build {
                 assertTrue(next())
                 assertEquals(string[description], python)
                 close()
@@ -84,24 +84,24 @@ public class JdbcOperationsTest : JdbcTestBase(){
 
     [Test] fun testQuery() {
         assertEquals(template!!.query(sql = select1, rse = { rs ->
-            rs!!.build{
+            rs.build {
                 next()
                 string[description]
             }
         }), python)
 
         template!!.query(sql = select1, rch = { rs ->
-            rs!!.build{
+            rs.build {
                 assertEquals(string[description], python)
             }
         })
 
-        assertEquals(template!!.query(select, mapperFunction)!!.size(), 5)
+        assertEquals(template!!.query(select, mapperFunction).size(), 5)
 
         assertEquals(template!!.query(statementCreator, rsFunction), 1)
 
         assertEquals(template!!.query(selectIdByDescription, { statement ->
-            statement!!.arguments{
+            statement.arguments {
                 string[1] = python
             }
         }, rsFunction), 1)
@@ -112,20 +112,20 @@ public class JdbcOperationsTest : JdbcTestBase(){
 
         assertEquals(template!!.kpQuery(selectIdByDescription, python) { rs -> rsFunction(rs) }, 1)
 
-        assertEquals(template!!.query({(con: Connection?)->
-            con!!.prepareStatement(select)!!
-        }, mapperFunction)!!.size(), 5)
+        assertEquals(template!!.query({(con: Connection) ->
+            con.prepareStatement(select)!!
+        }, mapperFunction).size(), 5)
 
         assertEquals(template!!.query(selectGreaterThan,
-                {(stmt: PreparedStatement?)->
-                    stmt!!.arguments{
+                {(stmt: PreparedStatement) ->
+                    stmt.arguments {
                         int[1] = 1
                     }
-                }, mapperFunction)!!.size(), 4)
+                }, mapperFunction).size(), 4)
 
-        assertEquals(template!!.query(selectGreaterThan, array<Any>(1), intArray(Types.INTEGER), mapperFunction)!!.size(), 4)
+        assertEquals(template!!.query(selectGreaterThan, array<Any>(1), intArray(Types.INTEGER), mapperFunction).size(), 4)
 
-        assertEquals(template!!.query(selectGreaterThan, array<Any>(1), mapperFunction)!!.size(), 4)
+        assertEquals(template!!.query(selectGreaterThan, array<Any>(1), mapperFunction).size(), 4)
 
         assertEquals(template!!.kpQuery(selectGreaterThan, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.size(), 4)
 
@@ -144,25 +144,25 @@ public class JdbcOperationsTest : JdbcTestBase(){
     }
 
     [Test] fun testUpdate() {
-        assertEquals(template!!.update{(con: Connection?)->
-            val ps = con!!.prepareStatement("update test_bean set create_date = ?")!!
-            ps.arguments{
+        assertEquals(template!!.update {(con: Connection) ->
+            val ps = con.prepareStatement("update test_bean set create_date = ?")!!
+            ps.arguments {
                 date[1] = Date(System.currentTimeMillis())
             }
             ps
         }, 5)
 
 
-        assertEquals(template!!.update({(con: Connection?)->
-            val ps = con!!.prepareStatement(insert)
+        assertEquals(template!!.update({ con ->
+            val ps = con.prepareStatement(insert)
             ps!!.arguments {
                 string[1] = "Haxe"
             }
             ps
         }, GeneratedKeyHolder()), 1)
 
-        assertEquals(template!!.update("update test_bean set create_date = ?") {(ps: PreparedStatement?)->
-            ps!!.arguments{
+        assertEquals(template!!.update("update test_bean set create_date = ?") { ps ->
+            ps.arguments {
                 date[1] = Date(System.currentTimeMillis())
             }
 
@@ -171,10 +171,9 @@ public class JdbcOperationsTest : JdbcTestBase(){
     }
 
     [Test] fun testBatchUpdate() {
-        template!!.batchUpdate(insert, listOf("clojure", "haxe", "objective-c", "erlang"), 4) {
-            (ps: PreparedStatement?, t: String?)->
-            ps!!.arguments {
-                string[1] = t!!
+        template!!.batchUpdate(insert, listOf("clojure", "haxe", "objective-c", "erlang"), 4) { ps, t ->
+            ps.arguments {
+                string[1] = t
             }
         }
         assertEquals(count(), 9)

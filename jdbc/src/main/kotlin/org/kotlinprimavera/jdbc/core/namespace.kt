@@ -31,7 +31,7 @@ import org.springframework.jdbc.core.RowMapper
  * Time: 23:07
  */
 
-public fun emptyResultToNull<T>(body: ()->T): T? {
+public fun emptyResultToNull<T>(body: () -> T): T? {
     return try{
         body()
     }catch(e: EmptyResultDataAccessException){
@@ -39,7 +39,7 @@ public fun emptyResultToNull<T>(body: ()->T): T? {
     }
 }
 
-public fun emptyResultToOption<T>(body: ()->T): Option<T> {
+public fun emptyResultToOption<T>(body: () -> T): Option<T> {
     return try {
         Some(body())
     } catch(e: EmptyResultDataAccessException) {
@@ -49,8 +49,8 @@ public fun emptyResultToOption<T>(body: ()->T): Option<T> {
 
 public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> {
     return object:RowMapper<T>{
-        public override fun mapRow(rs: ResultSet?, rowNum: Int): T? {
-            rowMapper(rs!!, rowNum)
+        public override fun mapRow(rs: ResultSet, rowNum: Int): T {
+            rowMapper(rs, rowNum)
         }
 
     }
@@ -64,20 +64,20 @@ public fun PreparedStatement.arguments(body: PreparedStatementArgumentsSetter.()
     PreparedStatementArgumentsSetter(this).body()
 }
 
-public fun JdbcOperations.kpQuery<T>(sql: String, vararg args: Any?, rse: (ResultSet)->T): T {
+public fun JdbcOperations.kpQuery<T>(sql: String, vararg args: Any, rse: (ResultSet) -> T): T {
     return this.query(sql, object:ResultSetExtractor<T>{
-        public override fun extractData(rs: ResultSet?): T? {
-            return rse(rs!!)
+        public override fun extractData(rs: ResultSet): T {
+            return rse(rs)
         }
-    }, *args)!!
+    }, *args)
 }
 
-public fun JdbcOperations.kpQuery<T>(sql: String, vararg args: Any?, rowMapper: (ResultSet, Int) -> T): List<T> {
-    return this.query(sql, rowMapperObject(rowMapper), *args)!!
+public fun JdbcOperations.kpQuery<T>(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): List<T> {
+    return this.query(sql, rowMapperObject(rowMapper), *args)
 }
 
-public fun JdbcOperations.kpQueryForObject<T>(sql: String, vararg args: Any?, rowMapper: (ResultSet, Int) -> T): T {
-    return this.queryForObject(sql, rowMapperObject(rowMapper), *args)!!
+public fun JdbcOperations.kpQueryForObject<T>(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): T {
+    return this.queryForObject(sql, rowMapperObject(rowMapper), *args)
 }
 
 

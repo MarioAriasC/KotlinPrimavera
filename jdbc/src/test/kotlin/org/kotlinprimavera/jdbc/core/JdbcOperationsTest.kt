@@ -133,11 +133,11 @@ public class JdbcOperationsTest : JdbcTestBase(){
     }
 
     [Test] fun testQueryForObject() {
-        assertEquals(template!!.queryForObject(select1, mapperFunction)!!.description, python)
+        assertEquals(template!!.queryForObject(select1, mapperFunction).description, python)
 
-        assertEquals(template!!.queryForObject(selectById, array<Any>(1), intArray(Types.INTEGER), mapperFunction)!!.description, python)
+        assertEquals(template!!.queryForObject(selectById, array<Any>(1), intArray(Types.INTEGER), mapperFunction).description, python)
 
-        assertEquals(template!!.queryForObject(selectById, array<Any>(1), mapperFunction)!!.description, python)
+        assertEquals(template!!.queryForObject(selectById, array<Any>(1), mapperFunction).description, python)
 
         assertEquals(template!!.kpQueryForObject(selectById, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.description, python)
 

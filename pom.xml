@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2_M6.1</version>
+    <version>0.2.1_M6.1</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <modules>
@@ -32,7 +32,7 @@
         <module>webmvc</module>
     </modules>
     <properties>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
         <kotlin.version>0.6.800</kotlin.version>
         <slf4j.version>1.7.0</slf4j.version>
     </properties>

@@ -25,5 +25,20 @@
       <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, paramSource: SqlParameterSource, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
     </annotation>
   </item>
+  <item name="org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+    <annotation name="jet.runtime.typeinfo.KotlinSignature">
+      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, paramSource: SqlParameterSource, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+    </annotation>
+  </item>
+  <item name="org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations java.util.List&lt;T&gt; query(java.lang.String, java.util.Map&lt;java.lang.String,?&gt;, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+    <annotation name="jet.runtime.typeinfo.KotlinSignature">
+      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, paramMap: Map&lt;String, Any?&gt;, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+    </annotation>
+  </item>
+  <item name="org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+    <annotation name="jet.runtime.typeinfo.KotlinSignature">
+      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, paramSource: SqlParameterSource, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+    </annotation>
+  </item>
 </root>
 

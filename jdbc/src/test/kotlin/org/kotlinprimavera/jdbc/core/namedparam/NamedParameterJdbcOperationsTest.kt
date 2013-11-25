@@ -60,14 +60,14 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template!!.query(selectIdByNamedDescription, descriptionToPythonMap, rsFunction), 1)
 
-        assertEquals(template!!.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction)!!.size(), 4)
+        assertEquals(template!!.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction).size(), 4)
 
 
-        assertEquals(template!!.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction)!!.size(), 4)
+        assertEquals(template!!.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size(), 4)
     }
 
     [Test] fun testQueryForObject() {
-        assertEquals(template!!.queryForObject(selectByNamedId, TestBean(id = 1).toSqlParameterSource(), mapperFunction)!!.description, python)
+        assertEquals(template!!.queryForObject(selectByNamedId, TestBean(id = 1).toSqlParameterSource(), mapperFunction).description, python)
 
         validateEmptyResult {
             template!!.queryForObject(selectByNamedId, TestBean(id = -1).toSqlParameterSource(), mapperFunction)

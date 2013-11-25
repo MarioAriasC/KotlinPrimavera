@@ -70,6 +70,16 @@
       <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, requiredType: Class&lt;T&gt;): T&quot;" />
     </annotation>
   </item>
+  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+    <annotation name="jet.runtime.typeinfo.KotlinSignature">
+      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+    </annotation>
+  </item>
+  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+    <annotation name="jet.runtime.typeinfo.KotlinSignature">
+      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+    </annotation>
+  </item>
   <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
     <annotation name="jet.runtime.typeinfo.KotlinSignature">
       <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, rowMapper: RowMapper&lt;T&gt;): T&quot;" />

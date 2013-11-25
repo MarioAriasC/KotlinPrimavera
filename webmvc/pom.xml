@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.1_M6.1</version>
+        <version>0.2.2_M6.1</version>
     </parent>
     <artifactId>webmvc</artifactId>
     <name>KotlinPrimavera Web MVC Module</name>
     <packaging>jar</packaging>
-    <version>0.2_M6.1</version>
+    <version>0.2.2_M6.1</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>

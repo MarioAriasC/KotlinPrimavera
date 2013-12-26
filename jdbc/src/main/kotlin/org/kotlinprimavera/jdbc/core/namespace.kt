@@ -50,7 +50,7 @@ public fun emptyResultToOption<T>(body: () -> T): Option<T> {
 public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> {
     return object:RowMapper<T>{
         public override fun mapRow(rs: ResultSet, rowNum: Int): T {
-            rowMapper(rs, rowNum)
+            return rowMapper(rs, rowNum)
         }
 
     }

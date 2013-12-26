@@ -15,160 +15,166 @@
   ~ limitations under the License.
   -->
 <root>
-  <item name="org.springframework.jdbc.core.ConnectionCallback T doInConnection(java.sql.Connection)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun doInConnection(con: Connection): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.ConnectionCallback&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; execute(action: ConnectionCallback&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.PreparedStatementCallback&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; execute(psc: PreparedStatementCreator, action: PreparedStatementCallback&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.StatementCallback&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; execute(action: StatementCallback&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.PreparedStatementSetter, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, pss: PreparedStatementSetter, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;, java.lang.Object...)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rse: ResultSetExtractor&lt;T&gt;, vararg args: Any): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T query(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(psc: PreparedStatementCreator, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Class&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, requiredType: Class&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;, java.lang.Object...)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, rowMapper: RowMapper&lt;T&gt;, vararg args: Any): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations int[][] batchUpdate(java.lang.String, java.util.Collection&lt;T&gt;, int, org.springframework.jdbc.core.ParameterizedPreparedStatementSetter&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; batchUpdate(sql: String, batchArgs: Collection&lt;T&gt;, batchSize: Int, pss: ParameterizedPreparedStatementSetter&lt;T&gt;): Array&lt;IntArray&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.PreparedStatementSetter, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, pss: PreparedStatementSetter, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;, java.lang.Object...)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rowMapper: RowMapper&lt;T&gt;, vararg args: Any): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun &lt;T&gt; query(psc: PreparedStatementCreator, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations void execute(java.lang.String)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun execute(sql: String): Unit&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.JdbcOperations void query(java.lang.String, org.springframework.jdbc.core.RowCallbackHandler)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun query(sql: String, rch: RowCallbackHandler): Unit&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.ParameterizedPreparedStatementSetter void setValues(java.sql.PreparedStatement, T)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun setValues(ps: PreparedStatement, argument: T): Unit&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.PreparedStatementCreator java.sql.PreparedStatement createPreparedStatement(java.sql.Connection)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun createPreparedStatement(con: Connection): PreparedStatement&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.PreparedStatementSetter void setValues(java.sql.PreparedStatement)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun setValues(ps: PreparedStatement): Unit&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.ResultSetExtractor T extractData(java.sql.ResultSet)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun extractData(rs: ResultSet): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.RowCallbackHandler void processRow(java.sql.ResultSet)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun processRow(rs: ResultSet): Unit&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.RowMapper T mapRow(java.sql.ResultSet, int)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun mapRow(rs: ResultSet, rowNum: Int): T&quot;" />
-    </annotation>
-  </item>
-  <item name="org.springframework.jdbc.core.StatementCallback T doInStatement(java.sql.Statement)">
-    <annotation name="jet.runtime.typeinfo.KotlinSignature">
-      <val name="value" val="&quot;fun doInStatement(stmt: Statement): T&quot;" />
-    </annotation>
-  </item>
+    <item name="org.springframework.jdbc.core.BeanPropertyRowMapper org.springframework.jdbc.core.BeanPropertyRowMapper&lt;T&gt; newInstance(java.lang.Class&lt;T&gt;)">
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun &lt;T&gt; newInstance(mappedClass: Class&lt;T&gt;): BeanPropertyRowMapper&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.ConnectionCallback T doInConnection(java.sql.Connection)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun doInConnection(con: Connection): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.ConnectionCallback&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; execute(action: ConnectionCallback&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.PreparedStatementCallback&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; execute(psc: PreparedStatementCreator, action: PreparedStatementCallback&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T execute(org.springframework.jdbc.core.StatementCallback&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; execute(action: StatementCallback&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.PreparedStatementSetter, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, pss: PreparedStatementSetter, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(java.lang.String, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;, java.lang.Object...)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rse: ResultSetExtractor&lt;T&gt;, vararg args: Any): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T query(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.ResultSetExtractor&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(psc: PreparedStatementCreator, rse: ResultSetExtractor&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Class&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, requiredType: Class&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, args: Array&lt;out Any&gt;, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, rowMapper: RowMapper&lt;T&gt;): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations T queryForObject(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;, java.lang.Object...)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; queryForObject(sql: String, rowMapper: RowMapper&lt;T&gt;, vararg args: Any): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations int[][] batchUpdate(java.lang.String, java.util.Collection&lt;T&gt;, int, org.springframework.jdbc.core.ParameterizedPreparedStatementSetter&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; batchUpdate(sql: String, batchArgs: Collection&lt;T&gt;, batchSize: Int, pss: ParameterizedPreparedStatementSetter&lt;T&gt;): Array&lt;IntArray&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, java.lang.Object[], int[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, argTypes: IntArray, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, java.lang.Object[], org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, args: Array&lt;out Any&gt;, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.PreparedStatementSetter, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, pss: PreparedStatementSetter, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(java.lang.String, org.springframework.jdbc.core.RowMapper&lt;T&gt;, java.lang.Object...)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(sql: String, rowMapper: RowMapper&lt;T&gt;, vararg args: Any): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations java.util.List&lt;T&gt; query(org.springframework.jdbc.core.PreparedStatementCreator, org.springframework.jdbc.core.RowMapper&lt;T&gt;)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun &lt;T&gt; query(psc: PreparedStatementCreator, rowMapper: RowMapper&lt;T&gt;): MutableList&lt;T&gt;&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations void execute(java.lang.String)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun execute(sql: String): Unit&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.JdbcOperations void query(java.lang.String, org.springframework.jdbc.core.RowCallbackHandler)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun query(sql: String, rch: RowCallbackHandler): Unit&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.ParameterizedPreparedStatementSetter void setValues(java.sql.PreparedStatement, T)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun setValues(ps: PreparedStatement, argument: T): Unit&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.PreparedStatementCreator java.sql.PreparedStatement createPreparedStatement(java.sql.Connection)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun createPreparedStatement(con: Connection): PreparedStatement&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.PreparedStatementSetter void setValues(java.sql.PreparedStatement)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun setValues(ps: PreparedStatement): Unit&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.ResultSetExtractor T extractData(java.sql.ResultSet)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun extractData(rs: ResultSet): T&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.RowCallbackHandler void processRow(java.sql.ResultSet)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun processRow(rs: ResultSet): Unit&quot;" />
+      </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.RowMapper T mapRow(java.sql.ResultSet, int)">
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mapRow(rs: ResultSet, rowNum: Int): T&quot;"/>
+        </annotation>
+    </item>
+    <item name="org.springframework.jdbc.core.StatementCallback T doInStatement(java.sql.Statement)">
+      <annotation name="jet.runtime.typeinfo.KotlinSignature">
+        <val name="value" val="&quot;fun doInStatement(stmt: Statement): T&quot;" />
+      </annotation>
+    </item>
 </root>
 

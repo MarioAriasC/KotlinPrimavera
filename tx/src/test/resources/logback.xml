@@ -18,12 +18,13 @@
 <configuration>
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>[KotlinPrimavera JDBC] %d{HH:mm:ss.SSS} [%thread] %level %logger{32} - %msg%n</pattern>
+            <pattern>[KotlinPrimavera Tx] %d{HH:mm:ss.SSS} [%thread] %level %logger{32} - %msg%n</pattern>
         </encoder>
     </appender>
     <logger name="org.springframework" level="INFO"/>
     <!--<logger name="org.springframework.security" level="DEBUG"/>-->
-    <!--<logger name="org.springframework.jdbc" level="DEBUG"/>-->
+    <logger name="org.springframework.jdbc" level="DEBUG"/>
+    <logger name="org.springframework.transaction" level="DEBUG"/>
     <logger name="org.kotlinprimavera" level="DEBUG"/>
     <!--<logger name="org.springframework.web" level="DEBUG"/>-->
     <root level="INFO">

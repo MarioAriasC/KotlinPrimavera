@@ -22,25 +22,39 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2.2_M6.1</version>
+    <version>0.2.3_M6.2</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
+    <description>Spring Framework Support libraries for Kotlin</description>
+    <url>https://github.com/MarioAriasC/KotlinPrimavera</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/MarioAriasC/KotlinPrimavera</url>
+        <connection>git@github.com:MarioAriasC/KotlinPrimavera.git</connection>
+    </scm>
     <modules>
         <module>context</module>
         <module>core</module>
         <module>jdbc</module>
+        <module>tx</module>
         <module>webmvc</module>
     </modules>
     <properties>
-        <spring.version>3.2.5.RELEASE</spring.version>
-        <kotlin.version>0.6.800</kotlin.version>
-        <slf4j.version>1.7.0</slf4j.version>
+        <spring.version>4.0.0.RELEASE</spring.version>
+        <kotlin.version>0.6.1670</kotlin.version>
+        <slf4j.version>1.7.5</slf4j.version>
     </properties>
     <repositories>
         <repository>
-            <id>bintray-funktionale</id>
-            <name>Bintray</name>
-            <url>http://dl.bintray.com/content/marioariasc/funKTionale/</url>
+            <id>JCenter</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>
         </repository>
     </repositories>
     <dependencies>
@@ -53,18 +67,18 @@
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${slf4j.version}</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <scope>runtime</scope>
+            <scope>test</scope>
             <version>1.0.0</version>
         </dependency>
         <dependency>
@@ -101,7 +115,7 @@
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.2.1_M6.1</version>
+            <version>0.2.3_M6.2</version>
         </dependency>
     </dependencies>
     <distributionManagement>
@@ -111,4 +125,36 @@
             <url>https://api.bintray.com/maven/marioariasc/KotlinPrimavera/KotlinPrimavera</url>
         </repository>
     </distributionManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
 </project>

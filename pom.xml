@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2.3_M6.2</version>
+    <version>0.2.4_M.6.2</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <description>Spring Framework Support libraries for Kotlin</description>
@@ -38,6 +38,15 @@
         <url>https://github.com/MarioAriasC/KotlinPrimavera</url>
         <connection>git@github.com:MarioAriasC/KotlinPrimavera.git</connection>
     </scm>
+    <developers>
+        <developer>
+            <name>Mario Arias</name>
+            <roles>
+                <role>Lead Developer</role>
+            </roles>
+            <email>mario@marioarias.org</email>
+        </developer>
+    </developers>
     <modules>
         <module>context</module>
         <module>core</module>

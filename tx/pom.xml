@@ -22,12 +22,19 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.3_M6.2</version>
+        <version>0.2.4_M.6.2</version>
     </parent>
     <artifactId>tx</artifactId>
     <name>KotlinPrimavera Tx Module</name>
     <packaging>jar</packaging>
-    <version>0.2.3_M6.2</version>
+    <version>0.2.4_M.6.2</version>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>

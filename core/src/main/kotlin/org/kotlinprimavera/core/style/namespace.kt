@@ -44,7 +44,7 @@ public fun ToStringCreator(obj: Any, styler: ValueStyler, body: ToStringCreator.
     return creator
 }
 
-public fun ToStringCreator(obj: Any, styler: ToStringStyler body: ToStringCreator.() -> Unit): ToStringCreator {
+public fun ToStringCreator(obj: Any, styler: ToStringStyler, body: ToStringCreator.() -> Unit): ToStringCreator {
     val creator = ToStringCreator(obj, styler)
     creator.body()
     return creator

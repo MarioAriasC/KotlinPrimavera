@@ -34,7 +34,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val array: DefaultArgumentSetter<java.sql.Array>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setArray(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setArray(i, v) }
         }
 
     public val asciiStream: ArgumentWithLengthSetter<InputStream>
@@ -47,7 +47,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val bigDecimal: DefaultArgumentSetter<BigDecimal>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setBigDecimal(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setBigDecimal(i, v) }
         }
 
     public val binaryStream: ArgumentWithLengthSetter<InputStream>
@@ -68,17 +68,17 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val boolean: DefaultArgumentSetter<Boolean>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setBoolean(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setBoolean(i, v) }
         }
 
     public val byte: DefaultArgumentSetter<Byte>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setByte(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setByte(i, v) }
         }
 
     public val bytes: DefaultArgumentSetter<ByteArray>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setBytes(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setBytes(i, v) }
         }
 
     public val characterStream: ArgumentWithLengthSetter<Reader>
@@ -106,22 +106,22 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val double: DefaultArgumentSetter<Double>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setDouble(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setDouble(i, v) }
         }
 
     public val float: DefaultArgumentSetter<Float>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setFloat(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setFloat(i, v) }
         }
 
     public val int: DefaultArgumentSetter<Int>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setInt(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setInt(i, v) }
         }
 
     public val long: DefaultArgumentSetter<Long>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setLong(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setLong(i, v) }
         }
 
     public val nCharacterStream: CombinedArgumentSetter<Reader, Long>
@@ -141,7 +141,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val nString: DefaultArgumentSetter<String>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setNString(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setNString(i, v) }
         }
 
     public val `null`: CombinedArgumentSetter<Int, String>
@@ -163,22 +163,22 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val ref: DefaultArgumentSetter<Ref>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setRef(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setRef(i, v) }
         }
 
     public val rowId: DefaultArgumentSetter<RowId>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setRowId(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setRowId(i, v) }
         }
 
     public val sqlXml: DefaultArgumentSetter<SQLXML>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setSQLXML(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setSQLXML(i, v) }
         }
 
     public val string: DefaultArgumentSetter<String>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setString(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setString(i, v) }
         }
 
     public val time: CombinedArgumentSetter<Time, Calendar>
@@ -197,6 +197,6 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
 
     public val url: DefaultArgumentSetter<URL>
         get(){
-            return DefaultArgumentSetter{(i, v) -> setURL(i, v) }
+            return DefaultArgumentSetter {(i, v) -> setURL(i, v) }
         }
 }

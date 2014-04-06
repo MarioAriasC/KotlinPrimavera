@@ -27,7 +27,7 @@ import java.net.URL
  * Date: 20/08/13
  * Time: 23:04
  */
-public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet{
+public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet {
     public val array: GetFieldsToken<java.sql.Array?>
         get(){
             return GetFieldsToken(

@@ -38,7 +38,7 @@ public fun MapSqlParameterSource.set(paramName: String, value: Any?) {
     this.addValue(paramName, value)
 }
 
-public fun MapSqlParameterSource.set(paramName: String, sqlType: Int value: Any?) {
+public fun MapSqlParameterSource.set(paramName: String, sqlType: Int, value: Any?) {
     this.addValue(paramName, value, sqlType)
 }
 

@@ -23,8 +23,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder
 import org.testng.annotations.Test
 import java.sql.*
 import org.testng.Assert.*
-import org.springframework.jdbc.core.ResultSetExtractor
-import org.kotlinprimavera.jdbc.TestBean
 
 
 /**
@@ -34,7 +32,7 @@ import org.kotlinprimavera.jdbc.TestBean
  * Time: 23:27
  */
 [ContextConfiguration]
-public class JdbcOperationsTest : JdbcTestBase(){
+public class JdbcOperationsTest : JdbcTestBase() {
 
     private val select1: String = "$select where id = 1"
     private val selectIdPython = "$selectId where description = 'python'"

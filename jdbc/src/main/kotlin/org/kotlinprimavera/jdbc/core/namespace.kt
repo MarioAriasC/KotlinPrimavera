@@ -32,9 +32,9 @@ import org.springframework.jdbc.core.RowMapper
  */
 
 public fun emptyResultToNull<T>(body: () -> T): T? {
-    return try{
+    return try {
         body()
-    }catch(e: EmptyResultDataAccessException){
+    } catch(e: EmptyResultDataAccessException) {
         null
     }
 }
@@ -43,12 +43,12 @@ public fun emptyResultToOption<T>(body: () -> T): Option<T> {
     return try {
         Some(body())
     } catch(e: EmptyResultDataAccessException) {
-        none
+        None()
     }
 }
 
 public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> {
-    return object:RowMapper<T>{
+    return object:RowMapper<T> {
         public override fun mapRow(rs: ResultSet, rowNum: Int): T {
             return rowMapper(rs, rowNum)
         }
@@ -65,7 +65,7 @@ public fun PreparedStatement.arguments(body: PreparedStatementArgumentsSetter.()
 }
 
 public fun JdbcOperations.kpQuery<T>(sql: String, vararg args: Any, rse: (ResultSet) -> T): T {
-    return this.query(sql, object:ResultSetExtractor<T>{
+    return this.query(sql, object:ResultSetExtractor<T> {
         public override fun extractData(rs: ResultSet): T {
             return rse(rs)
         }

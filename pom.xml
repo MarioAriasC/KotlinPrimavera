@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2.3_M6.2</version>
+    <version>0.2.3_M7</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <description>Spring Framework Support libraries for Kotlin</description>
@@ -46,8 +46,8 @@
         <module>webmvc</module>
     </modules>
     <properties>
-        <spring.version>4.0.0.RELEASE</spring.version>
-        <kotlin.version>0.6.1670</kotlin.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
+        <kotlin.version>0.7.270</kotlin.version>
         <slf4j.version>1.7.5</slf4j.version>
     </properties>
     <repositories>
@@ -115,7 +115,7 @@
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.2.3_M6.2</version>
+            <version>0.3_M7</version>
         </dependency>
     </dependencies>
     <distributionManagement>

@@ -61,11 +61,10 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     }
 
     protected fun validateEmptyResult(body: () -> Unit) {
-        try{
+        try {
             body()
             fail("Function $body don't throw a exception")
-        }
-        catch(e: EmptyResultDataAccessException){
+        } catch(e: EmptyResultDataAccessException) {
             //expected
         }
     }

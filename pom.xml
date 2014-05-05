@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2.3_M7</version>
+    <version>0.2.4_M7</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <description>Spring Framework Support libraries for Kotlin</description>
@@ -40,13 +40,14 @@
     </scm>
     <modules>
         <module>context</module>
+        <module>beans</module>
         <module>core</module>
         <module>jdbc</module>
         <module>tx</module>
         <module>webmvc</module>
     </modules>
     <properties>
-        <spring.version>4.0.2.RELEASE</spring.version>
+        <spring.version>4.0.4.RELEASE</spring.version>
         <kotlin.version>0.7.270</kotlin.version>
         <slf4j.version>1.7.5</slf4j.version>
     </properties>

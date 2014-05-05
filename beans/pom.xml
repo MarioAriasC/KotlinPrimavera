@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2013 Mario Arias
+  ~ Copyright 2014 Mario Arias
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -24,17 +24,10 @@
         <artifactId>parent</artifactId>
         <version>0.2.4_M7</version>
     </parent>
-    <artifactId>webmvc</artifactId>
-    <name>KotlinPrimavera Web MVC Module</name>
+    <artifactId>beans</artifactId>
+    <name>KotlinPrimavera Beans Module</name>
     <packaging>jar</packaging>
     <version>0.2.4_M7</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-    </dependencies>
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
@@ -43,7 +36,11 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
-
+                <configuration>
+                    <annotationPaths>
+                        <annotationPath>${project.basedir}/src/main/resources/</annotationPath>
+                    </annotationPaths>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>

@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.3_M7</version>
+        <version>0.2.4_M7</version>
     </parent>
     <artifactId>tx</artifactId>
     <name>KotlinPrimavera Tx Module</name>
     <packaging>jar</packaging>
-    <version>0.2.3_M7</version>
+    <version>0.2.4_M7</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>

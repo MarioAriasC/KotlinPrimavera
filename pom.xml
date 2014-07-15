@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.2.4_M7</version>
+    <version>0.2.5_M8</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <description>Spring Framework Support libraries for Kotlin</description>
@@ -47,9 +47,7 @@
         <module>webmvc</module>
     </modules>
     <properties>
-        <spring.version>4.0.4.RELEASE</spring.version>
-        <kotlin.version>0.7.270</kotlin.version>
-        <slf4j.version>1.7.5</slf4j.version>
+        <kotlin.version>0.8.11</kotlin.version>
     </properties>
     <repositories>
         <repository>
@@ -58,6 +56,17 @@
             <url>http://jcenter.bintray.com</url>
         </repository>
     </repositories>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>1.0.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -67,25 +76,21 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
-            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>
@@ -97,26 +102,23 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.4</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.3_M7</version>
+            <version>0.3_M8</version>
         </dependency>
     </dependencies>
     <distributionManagement>

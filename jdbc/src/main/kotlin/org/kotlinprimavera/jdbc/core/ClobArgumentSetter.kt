@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Mario Arias
+ * Copyright 2014 Mario Arias
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import java.sql.Blob
-import java.io.InputStream
+import java.sql.Clob
+import java.io.Reader
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,11 +26,11 @@ import java.io.InputStream
  * Time: 21:27
  */
 
-public class BlobArgumentSetter(val blobSetter: (Int, Blob) -> Unit,
-                                override val setter: (Int, InputStream) -> Unit,
-                                override val setter2: (Int, InputStream, Long) -> Unit) : AbstractBlobArgumentSetter<InputStream>(setter, setter2) {
+public class ClobArgumentSetter(val blobSetter: (Int, Clob) -> Unit,
+                                override val setter: (Int, Reader) -> Unit,
+                                override val setter2: (Int, Reader, Long) -> Unit) : AbstractBlobArgumentSetter<Reader>(setter, setter2) {
 
-    public fun set(index: Int, blob: Blob) {
-        blobSetter(index, blob)
+    public fun set(index: Int, clob: Clob) {
+        blobSetter(index, clob)
     }
 }

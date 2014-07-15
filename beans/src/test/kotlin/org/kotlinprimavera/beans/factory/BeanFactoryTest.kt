@@ -99,7 +99,7 @@ public open class TestConfig {
         return C(2)
     }
 
-    [Bean] [Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)]
+    [Bean] [Scope("prototype")]
     public open fun d(num: Int, str: String): D {
         return D(num, str)
     }

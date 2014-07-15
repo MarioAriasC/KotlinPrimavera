@@ -58,7 +58,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     {(i, v, l) -> setBinaryStream(i, v, l) })
         }
 
-    public val blob: BlobArgumentSetter<Blob, InputStream>
+    public val blob: BlobArgumentSetter
         get(){
             return BlobArgumentSetter(
                     {(i, b) -> setBlob(i, b) },
@@ -89,9 +89,9 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     {(i, v, l) -> setCharacterStream(i, v, l) })
         }
 
-    public val clob: BlobArgumentSetter<Clob, Reader>
+    public val clob: ClobArgumentSetter
         get(){
-            return BlobArgumentSetter(
+            return ClobArgumentSetter(
                     {(i, b) -> setClob(i, b) },
                     {(i, v) -> setClob(i, v) },
                     {(i, v, l) -> setClob(i, v, l) })
@@ -131,9 +131,9 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, r, l -> setNCharacterStream(i, r, l) })
         }
 
-    public val nClob: BlobArgumentSetter<NClob, Reader>
+    public val nClob: NClobArgumentSetter
         get(){
-            return BlobArgumentSetter(
+            return NClobArgumentSetter(
                     {(i, b) -> setNClob(i, b) },
                     {(i, v) -> setNClob(i, v) },
                     {(i, v, l) -> setNClob(i, v, l) })

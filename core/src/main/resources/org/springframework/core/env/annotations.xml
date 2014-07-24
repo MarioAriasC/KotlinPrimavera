@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright 2014 Mario Arias
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ 	http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<root>
+    <item name='org.springframework.core.env.PropertyResolver T getProperty(java.lang.String, java.lang.Class&lt;T&gt;, T)'>
+        <annotation name='kotlin.jvm.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun &lt;T&gt; getProperty(key: String?, targetType: Class&lt;T&gt;?, defaultValue: T): T&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.springframework.core.env.PropertyResolver java.lang.String getProperty(java.lang.String, java.lang.String)'>
+        <annotation name='kotlin.jvm.KotlinSignature'>
+            <val name="value" val="&quot;fun getProperty(key: String?, defaultValue: String): String&quot;"/>
+        </annotation>
+    </item>
+</root>

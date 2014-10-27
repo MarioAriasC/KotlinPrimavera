@@ -44,8 +44,8 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
         }
     }
 
-    val action = {(st: PreparedStatement?) ->
-        val rs = st!!.executeQuery()
+    val action = {(st: PreparedStatement) ->
+        val rs = st.executeQuery()
         rsFunction(rs)
     }
 

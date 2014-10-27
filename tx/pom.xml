@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.5_M8</version>
+        <version>0.2.6_M9</version>
     </parent>
     <artifactId>tx</artifactId>
     <name>KotlinPrimavera Tx Module</name>
     <packaging>jar</packaging>
-    <version>0.2.5_M8</version>
+    <version>0.2.6_M9</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -53,11 +53,6 @@
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
-                <configuration>
-                    <annotationPaths>
-                        <annotationPath>${project.basedir}/src/main/resources/</annotationPath>
-                    </annotationPaths>
-                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>

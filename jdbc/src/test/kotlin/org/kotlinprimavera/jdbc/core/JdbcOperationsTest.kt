@@ -81,14 +81,14 @@ public class JdbcOperationsTest : JdbcTestBase() {
     }
 
     [Test] fun testQuery() {
-        assertEquals(template!!.query(sql = select1, rse = { rs ->
+        assertEquals(template!!.query<String>(select1, {(rs: ResultSet) ->
             rs.build {
                 next()
-                string[description]
+                string[description]!!
             }
         }), python)
 
-        template!!.query(sql = select1, rch = { rs ->
+        template!!.query(select1, {(rs: ResultSet) ->
             rs.build {
                 assertEquals(string[description], python)
             }
@@ -108,7 +108,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template!!.query(selectIdByDescription, array<Any>(python), rsFunction), 1)
 
-        assertEquals(template!!.kpQuery(selectIdByDescription, python) { rs -> rsFunction(rs) }, 1)
+        assertEquals(template!!.query(selectIdByDescription, python) { rs -> rsFunction(rs) }, 1)
 
         assertEquals(template!!.query({(con: Connection) ->
             con.prepareStatement(select)!!
@@ -125,7 +125,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template!!.query(selectGreaterThan, array<Any>(1), mapperFunction).size(), 4)
 
-        assertEquals(template!!.kpQuery(selectGreaterThan, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.size(), 4)
+        assertEquals(template!!.query(selectGreaterThan, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.size(), 4)
 
 
     }
@@ -137,7 +137,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template!!.queryForObject(selectById, array<Any>(1), mapperFunction).description, python)
 
-        assertEquals(template!!.kpQueryForObject(selectById, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.description, python)
+        assertEquals(template!!.queryForObject(selectById, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.description, python)
 
     }
 

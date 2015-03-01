@@ -22,17 +22,22 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.6_M9</version>
+        <version>0.3_M10</version>
     </parent>
     <artifactId>jdbc</artifactId>
     <name>KotlinPrimavera JDBC Module</name>
     <packaging>jar</packaging>
-    <version>0.2.6_M9</version>
+    <version>0.3_M10</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.kotlinprimavera</groupId>
+            <artifactId>core</artifactId>
+            <version>0.3_M10</version>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>

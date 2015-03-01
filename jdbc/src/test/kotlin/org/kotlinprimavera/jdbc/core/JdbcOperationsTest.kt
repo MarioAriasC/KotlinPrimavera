@@ -58,7 +58,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
                 string[1] = python
             }
             val resultSet = prepareStatement.executeQuery()
-            resultSet.build {
+            resultSet.extract {
                 assertTrue(next())
                 assertEquals(int["id"], 1)
                 close()
@@ -67,7 +67,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         template!!.execute {(statement: Statement) ->
             val resultSet = statement.executeQuery(select1)
-            resultSet.build {
+            resultSet.extract {
                 assertTrue(next())
                 assertEquals(string[description], python)
                 close()
@@ -82,14 +82,14 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
     [Test] fun testQuery() {
         assertEquals(template!!.query<String>(select1, {(rs: ResultSet) ->
-            rs.build {
+            rs.extract {
                 next()
                 string[description]!!
             }
         }), python)
 
         template!!.query(select1, {(rs: ResultSet) ->
-            rs.build {
+            rs.extract {
                 assertEquals(string[description], python)
             }
         })

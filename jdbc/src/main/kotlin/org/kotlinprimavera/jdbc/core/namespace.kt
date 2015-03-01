@@ -52,8 +52,13 @@ public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> = 
 
 }
 
-public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
+public inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T {
     return ResultSetGetFieldTokens(this).body()
+}
+
+[deprecated("use ResultSet.extract. Will be deleted in 0.5")]
+public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
+    return extract(body)
 }
 
 public fun PreparedStatement.arguments(body: PreparedStatementArgumentsSetter.() -> Unit) {

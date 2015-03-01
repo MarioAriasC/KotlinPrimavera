@@ -34,6 +34,7 @@ fun PropertyResolver.get(key: String, defaultValue:String): String {
     return this.getProperty(key, defaultValue)
 }
 
+[suppress("BASE_WITH_NULLABLE_UPPER_BOUND")]
 fun<T> PropertyResolver.get(key: String, targetType: Class<T>): T? {
     return this.getProperty(key, targetType)
 }

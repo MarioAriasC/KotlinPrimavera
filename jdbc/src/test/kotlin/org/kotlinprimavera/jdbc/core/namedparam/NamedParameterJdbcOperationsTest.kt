@@ -23,6 +23,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.testng.Assert.*
 import org.testng.annotations.Test
 import org.kotlinprimavera.jdbc.TestBean
+import kotlin.properties.Delegates
 
 /**
  * Created by IntelliJ IDEA.

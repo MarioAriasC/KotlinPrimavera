@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mario Arias
+ * Copyright 2015 Mario Arias
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package org.kotlinprimavera.jdbc.core
+package org.kotlinprimavera.jdbc.core.config
 
-/**
- * Created by IntelliJ IDEA.
- * @author Mario Arias
- * Date: 23/08/13
- * Time: 21:27
- */
+import org.springframework.jdbc.datasource.init.ScriptUtils
 
-public abstract class AbstractBlobArgumentSetter<R>(override val setter: (Int, R) -> Unit,
-                                                       override val setter2: (Int, R, Long) -> Unit) : ArgumentSetter<R>, ArgumentSetter2<R, Long>
 
+public class EmbeddedDatabaseTag {
+    public val scripts: MutableList<ScriptTag> = arrayListOf()
+
+    public fun script(location: String,
+                      encoding: String? = null,
+                      separator: String = ScriptUtils.DEFAULT_STATEMENT_SEPARATOR,
+                      execution: ExecutionValue = ExecutionValue.INIT) {
+        scripts.add(ScriptTag(location, encoding, separator, execution))
+    }
+}

@@ -36,8 +36,8 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     val python = "python"
     val description = "description"
 
-    val mapperFunction = {(rs: ResultSet, i: Int) ->
-        rs.build {
+    inline val mapperFunction = {(rs: ResultSet, i: Int) ->
+        rs.extract {
             TestBean(int["id"]!!,
                     string["description"]!!,
                     date["create_date"]!!)
@@ -50,7 +50,7 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     }
 
     val rsFunction = {(rs: ResultSet) ->
-        rs.build {
+        rs.extract {
             next()
             int["id"]
         }

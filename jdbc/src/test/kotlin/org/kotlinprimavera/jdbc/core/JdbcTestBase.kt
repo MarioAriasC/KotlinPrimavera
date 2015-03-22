@@ -16,18 +16,18 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests
-import java.sql.ResultSet
 import org.kotlinprimavera.jdbc.TestBean
-import java.sql.PreparedStatement
-import org.testng.Assert.*
 import org.springframework.dao.EmptyResultDataAccessException
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests
+import org.testng.Assert.fail
+import java.sql.PreparedStatement
+import java.sql.ResultSet
 
 /**
  * Created by IntelliJ IDEA.
  * @author Mario Arias
- * Date: 20/08/13
- * Time: 23:28
+* Date: 20/08/13
+* Time: 23:28
  */
 public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTests() {
     val select = "select * from test_bean "
@@ -36,7 +36,7 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     val python = "python"
     val description = "description"
 
-    inline val mapperFunction = {(rs: ResultSet, i: Int) ->
+    inline val mapperFunction = { rs: ResultSet, i: Int ->
         rs.extract {
             TestBean(int["id"]!!,
                     string["description"]!!,
@@ -44,12 +44,12 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
         }
     }
 
-    val action = {(st: PreparedStatement) ->
+    val action = { st: PreparedStatement ->
         val rs = st.executeQuery()
         rsFunction(rs)
     }
 
-    val rsFunction = {(rs: ResultSet) ->
+    val rsFunction = { rs: ResultSet ->
         rs.extract {
             next()
             int["id"]

@@ -16,20 +16,21 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import org.springframework.test.context.ContextConfiguration
-import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.support.GeneratedKeyHolder
+import org.springframework.test.context.ContextConfiguration
+import org.testng.Assert.assertEquals
+import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
 import java.sql.*
-import org.testng.Assert.*
 
 
 /**
  * Created by IntelliJ IDEA.
  * @author Mario Arias
- * Date: 20/08/13
- * Time: 23:27
+* Date: 20/08/13
+* Time: 23:27
  */
 [ContextConfiguration]
 public class JdbcOperationsTest : JdbcTestBase() {
@@ -52,7 +53,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
     [Autowired] var template: JdbcTemplate? = null
 
     [Test] fun testExecute() {
-        template!!.execute {(connection: Connection) ->
+        template!!.execute { connection: Connection ->
             val prepareStatement = connection.prepareStatement(selectIdByDescription)!!
             prepareStatement.arguments {
                 string[1] = python
@@ -65,7 +66,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
             }
         }
 
-        template!!.execute {(statement: Statement) ->
+        template!!.execute { statement: Statement ->
             val resultSet = statement.executeQuery(select1)
             resultSet.extract {
                 assertTrue(next())
@@ -81,14 +82,14 @@ public class JdbcOperationsTest : JdbcTestBase() {
     }
 
     [Test] fun testQuery() {
-        assertEquals(template!!.query<String>(select1, {(rs: ResultSet) ->
+        assertEquals(template!!.query<String>(select1, { rs: ResultSet ->
             rs.extract {
                 next()
                 string[description]!!
             }
         }), python)
 
-        template!!.query(select1, {(rs: ResultSet) ->
+        template!!.query(select1, { rs: ResultSet ->
             rs.extract {
                 assertEquals(string[description], python)
             }
@@ -110,12 +111,12 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template!!.query(selectIdByDescription, python) { rs -> rsFunction(rs) }, 1)
 
-        assertEquals(template!!.query({(con: Connection) ->
+        assertEquals(template!!.query({ con: Connection ->
             con.prepareStatement(select)!!
         }, mapperFunction).size(), 5)
 
         assertEquals(template!!.query(selectGreaterThan,
-                {(stmt: PreparedStatement) ->
+                { stmt: PreparedStatement ->
                     stmt.arguments {
                         int[1] = 1
                     }
@@ -142,7 +143,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
     }
 
     [Test] fun testUpdate() {
-        assertEquals(template!!.update {(con: Connection) ->
+        assertEquals(template!!.update { con: Connection ->
             val ps = con.prepareStatement("update test_bean set create_date = ?")!!
             ps.arguments {
                 date[1] = Date(System.currentTimeMillis())

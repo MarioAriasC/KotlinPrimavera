@@ -18,18 +18,30 @@ package org.kotlinprimavera.beans.factory
 
 import org.springframework.beans.factory.BeanFactory
 
+/**
+ * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
+ */
 public fun BeanFactory.get(name: String): Any {
     return getBean(name)
 }
 
+/**
+ * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
+ */
 public fun<T> BeanFactory.get(requiredType: Class<T>): T {
     return getBean(requiredType)
 }
 
+/**
+ * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
+ */
 public fun<T> BeanFactory.get(name: String, requiredType: Class<T>): T {
     return getBean(name, requiredType)
 }
 
+/**
+ * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
+ */
 public fun BeanFactory.get(name: String, vararg args: Any): Any {
     return getBean(name, *args)
 }

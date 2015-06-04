@@ -32,7 +32,7 @@ import org.springframework.jdbc.core.RowCallbackHandler
  * Time: 23:07
  */
 
-[suppress("BASE_WITH_NULLABLE_UPPER_BOUND")]
+@suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
 public fun emptyResultToNull<T>(body: () -> T): T? = try {
     body()
 } catch(e: EmptyResultDataAccessException) {
@@ -56,7 +56,7 @@ public inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T
     return ResultSetGetFieldTokens(this).body()
 }
 
-[deprecated("use ResultSet.extract. Will be deleted in 0.5")]
+@deprecated("use ResultSet.extract. Will be deleted in 0.5")
 public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
     return extract(body)
 }

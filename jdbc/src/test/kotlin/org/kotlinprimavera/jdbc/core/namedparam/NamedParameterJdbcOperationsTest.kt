@@ -31,9 +31,9 @@ import kotlin.properties.Delegates
  * Date: 27/08/13
  * Time: 1:04
  */
-[ContextConfiguration]
+@ContextConfiguration
 public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
-    [Autowired] var template: NamedParameterJdbcTemplate? = null
+    @Autowired var template: NamedParameterJdbcTemplate? = null
 
     private val id = "id"
 
@@ -47,7 +47,7 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
 
     private val parameterSource = TestBean(description = python).toSqlParameterSource()
 
-    [Test] fun testExecute() {
+    @Test fun testExecute() {
 
 
         assertEquals(template!!.execute(selectIdByNamedDescription, parameterSource, action), 1)
@@ -55,7 +55,7 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
         assertEquals(template!!.execute(selectIdByNamedDescription, descriptionToPythonMap, action), 1)
     }
 
-    [Test] fun testQuery() {
+    @Test fun testQuery() {
         assertEquals(template!!.query(selectIdByNamedDescription, parameterSource, rsFunction), 1)
 
 
@@ -67,7 +67,7 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
         assertEquals(template!!.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size(), 4)
     }
 
-    [Test] fun testQueryForObject() {
+    @Test fun testQueryForObject() {
         assertEquals(template!!.queryForObject(selectByNamedId, TestBean(id = 1).toSqlParameterSource(), mapperFunction).description, python)
 
         validateEmptyResult {

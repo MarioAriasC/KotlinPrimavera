@@ -28,10 +28,10 @@ import org.springframework.context.annotation.Bean
  * Date: 25/01/15
  * Time: 1:26 AM
  */
-[Configuration]
+@Configuration
 public open class DataTestConfig {
 
-    [Bean]
+    @Bean
     public open fun dataSource(): DataSource {
         return embeddedDatabase(type = EmbeddedDatabaseType.HSQL) {
             script(location = "classpath:schema-hsql.sql")

@@ -37,7 +37,7 @@ public class PropertyResolverTests {
     private var propertySources: MutablePropertySources by Delegates.notNull()
     private var propertyResolver: PropertyResolver by Delegates.notNull()
 
-    [BeforeMethod]
+    @BeforeMethod
     public fun setUp() {
         propertySources = MutablePropertySources()
         propertyResolver = PropertySourcesPropertyResolver(propertySources)
@@ -45,7 +45,7 @@ public class PropertyResolverTests {
         propertySources.addFirst(PropertiesPropertySource("testProperties", testProperties))
     }
 
-    [Test]
+    @Test
     public fun getProperty() {
         assertNull(propertyResolver["foo"])
         assertNull(propertyResolver["num"])
@@ -55,7 +55,7 @@ public class PropertyResolverTests {
         assertEquals(propertyResolver["num", javaClass<Int>()], 5)
     }
 
-    [Test]
+    @Test
     public fun getPropertyWithDefaultValue() {
         assertEquals(propertyResolver["foo", "myDefault"], "myDefault")
         assertEquals(propertyResolver["num", javaClass<Int>(), 42], 42)

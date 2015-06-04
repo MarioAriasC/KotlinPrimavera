@@ -22,7 +22,7 @@ package org.kotlinprimavera.jdbc.core
  * Date: 21/08/13
  * Time: 22:04
  */
-public trait ArgumentSetter<T> {
+public interface ArgumentSetter<T> {
 
     val setter: (Int, T) -> Unit
 

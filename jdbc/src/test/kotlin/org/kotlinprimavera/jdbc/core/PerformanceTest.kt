@@ -27,12 +27,12 @@ import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 
 
-[ContextConfiguration]
+@ContextConfiguration
 public class PerformanceTest : JdbcTestBase() {
 
-    [Autowired] var template: JdbcTemplate? = null
+    @Autowired var template: JdbcTemplate? = null
 
-    [Test]
+    @Test
     fun performance() {
         val watch = stopWatch() {
 

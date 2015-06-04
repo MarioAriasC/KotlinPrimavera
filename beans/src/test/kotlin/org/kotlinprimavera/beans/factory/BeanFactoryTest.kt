@@ -30,13 +30,13 @@ public class BeanFactoryTest {
 
     private val context = AnnotationConfigApplicationContext(javaClass<TestConfig>())
 
-    [Test]
+    @Test
     fun testGetA() {
         val a = context["a"]
         assertTrue(a is A)
     }
 
-    [Test]
+    @Test
     fun testGetB() {
         try {
             context[javaClass<B>()]
@@ -45,13 +45,13 @@ public class BeanFactoryTest {
         }
     }
 
-    [Test]
+    @Test
     fun testGetC() {
         val c1 = context["c1", javaClass<C>()]
         assertEquals(c1.value, 1)
     }
 
-    [Test]
+    @Test
     fun testGetD() {
         val dAsAny = context["d", 42, "kotlin"]
         assertTrue(dAsAny is D)
@@ -76,30 +76,30 @@ data class D(val num: Int, val str: String) {
 }
 
 
-[Configuration]
+@Configuration
 public open class TestConfig {
 
-    [Bean]
+    @Bean
     public open fun a(): A {
         return A()
     }
 
-    [Bean]
+    @Bean
     public open fun b(): B {
         return B()
     }
 
-    [Bean]
+    @Bean
     public open fun c1(): C {
         return C(1)
     }
 
-    [Bean]
+    @Bean
     public open fun c2(): C {
         return C(2)
     }
 
-    [Bean] [Scope("prototype")]
+    @Bean @Scope("prototype")
     public open fun d(num: Int, str: String): D {
         return D(num, str)
     }

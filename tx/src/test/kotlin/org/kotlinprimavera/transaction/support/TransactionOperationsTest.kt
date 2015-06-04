@@ -32,13 +32,13 @@ import org.springframework.transaction.annotation.Propagation
  * Date: 26/12/13
  * Time: 20:06
  */
-[ContextConfiguration]
+@ContextConfiguration
 public class TransactionOperationsTest : AbstractTransactionalTestNGSpringContextTests() {
-    [Autowired] var txTemplate: TransactionTemplate? = null
-    [Autowired] var template: JdbcTemplate? = null
+    @Autowired var txTemplate: TransactionTemplate? = null
+    @Autowired var template: JdbcTemplate? = null
 
-    [Test]
-    [Transactional(propagation = Propagation.NOT_SUPPORTED)]
+    @Test
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     fun testExecute() {
         txTemplate!!.execute { status ->
             template!!.update("delete from test_bean")

@@ -16,6 +16,7 @@
 
 package org.kotlinprimavera.jdbc.core
 
+import org.kotlinprimavera.beans.uninitialized
 import org.springframework.test.context.ContextConfiguration
 import org.testng.annotations.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -30,7 +31,9 @@ import java.sql.ResultSet
 @ContextConfiguration
 public class PerformanceTest : JdbcTestBase() {
 
-    @Autowired var template: JdbcTemplate? = null
+    @Autowired var template: JdbcTemplate = uninitialized()
+
+
 
     @Test
     fun performance() {
@@ -38,12 +41,12 @@ public class PerformanceTest : JdbcTestBase() {
 
             for (i in 1..10) {
                 task("With DSL as parameter: $i run") {
-                    val result = template!!.query(select, mapperFunction)
+                    val result = template.query(select, mapperFunction)
                     Assert.assertEquals(result.size(), 1000)
                 }
 
                 task("With DSL in line: $i run ") {
-                    val result = template!!.query(select) { rs, i ->
+                    val result = template.query(select) { rs, i ->
                         rs.extract {
                             TestBean(int["id"]!!,
                                     string["description"]!!,
@@ -54,7 +57,7 @@ public class PerformanceTest : JdbcTestBase() {
                 }
 
                 task("Without DSL: $i run") {
-                    val result = template!!.query(select) { rs, i ->
+                    val result = template.query(select) { rs, i ->
                         TestBean(rs.getInt("id"),
                                 rs.getString("description")!!,
                                 rs.getDate("create_date")!!)
@@ -64,7 +67,7 @@ public class PerformanceTest : JdbcTestBase() {
                 }
 
                 task("Without SAM: $i run") {
-                    val result = template!!.query(select, object : RowMapper<TestBean> {
+                    val result = template.query(select, object : RowMapper<TestBean> {
                         override fun mapRow(rs: ResultSet, rowNum: Int): TestBean {
                             return TestBean(rs.getInt("id"),
                                     rs.getString("description")!!,

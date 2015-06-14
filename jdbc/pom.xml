@@ -36,6 +36,11 @@
         </dependency>
         <dependency>
             <groupId>org.kotlinprimavera</groupId>
+            <artifactId>beans</artifactId>
+            <version>0.4_M12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kotlinprimavera</groupId>
             <artifactId>core</artifactId>
             <version>0.4_M12</version>
         </dependency>

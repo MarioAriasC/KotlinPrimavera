@@ -16,6 +16,7 @@
 
 package org.kotlinprimavera.jdbc.core.namedparam
 
+import org.kotlinprimavera.beans.uninitialized
 import org.kotlinprimavera.jdbc.core.JdbcTestBase
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.beans.factory.annotation.Autowired
@@ -33,7 +34,7 @@ import kotlin.properties.Delegates
  */
 @ContextConfiguration
 public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
-    @Autowired var template: NamedParameterJdbcTemplate? = null
+    @Autowired var template: NamedParameterJdbcTemplate = uninitialized()
 
     private val id = "id"
 
@@ -50,28 +51,28 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
     @Test fun testExecute() {
 
 
-        assertEquals(template!!.execute(selectIdByNamedDescription, parameterSource, action), 1)
+        assertEquals(template.execute(selectIdByNamedDescription, parameterSource, action), 1)
 
-        assertEquals(template!!.execute(selectIdByNamedDescription, descriptionToPythonMap, action), 1)
+        assertEquals(template.execute(selectIdByNamedDescription, descriptionToPythonMap, action), 1)
     }
 
     @Test fun testQuery() {
-        assertEquals(template!!.query(selectIdByNamedDescription, parameterSource, rsFunction), 1)
+        assertEquals(template.query(selectIdByNamedDescription, parameterSource, rsFunction), 1)
 
 
-        assertEquals(template!!.query(selectIdByNamedDescription, descriptionToPythonMap, rsFunction), 1)
+        assertEquals(template.query(selectIdByNamedDescription, descriptionToPythonMap, rsFunction), 1)
 
-        assertEquals(template!!.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction).size(), 4)
+        assertEquals(template.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction).size(), 4)
 
 
-        assertEquals(template!!.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size(), 4)
+        assertEquals(template.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size(), 4)
     }
 
     @Test fun testQueryForObject() {
-        assertEquals(template!!.queryForObject(selectByNamedId, TestBean(id = 1).toSqlParameterSource(), mapperFunction).description, python)
+        assertEquals(template.queryForObject(selectByNamedId, TestBean(id = 1).toSqlParameterSource(), mapperFunction).description, python)
 
         validateEmptyResult {
-            template!!.queryForObject(selectByNamedId, TestBean(id = -1).toSqlParameterSource(), mapperFunction)
+            template.queryForObject(selectByNamedId, TestBean(id = -1).toSqlParameterSource(), mapperFunction)
         }
     }
 

@@ -42,7 +42,7 @@ public fun emptyResultToNull<T>(body: () -> T): T? = try {
 public fun emptyResultToOption<T>(body: () -> T): Option<T> = try {
     Some(body())
 } catch(e: EmptyResultDataAccessException) {
-    None()
+    None
 }
 
 public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> = object : RowMapper<T> {
@@ -56,7 +56,7 @@ public inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T
     return ResultSetGetFieldTokens(this).body()
 }
 
-@deprecated("use ResultSet.extract. Will be deleted in 0.5")
+@deprecated("use ResultSet.extract. Will be deleted in 0.5", ReplaceWith("extract(body)"))
 public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
     return extract(body)
 }

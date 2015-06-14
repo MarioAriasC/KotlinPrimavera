@@ -47,7 +47,7 @@
         <module>webmvc</module>
     </modules>
     <properties>
-        <kotlin.version>0.12.200</kotlin.version>
+        <kotlin.version>0.12.412</kotlin.version>
     </properties>
     <repositories>
         <repository>
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
-                <version>1.1.1.RELEASE</version>
+                <version>1.1.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -118,7 +118,13 @@
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.5.1_M12</version>
+            <version>0.5.1.1_M12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <distributionManagement>

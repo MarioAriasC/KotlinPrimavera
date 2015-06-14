@@ -30,7 +30,9 @@ import java.sql.ResultSet
 * Time: 23:28
  */
 public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTests() {
+
     val select = "select * from test_bean "
+
     val selectId = "select id from test_bean "
     val selectIdByDescription = "$selectId where description = ?"
     val python = "python"
@@ -43,6 +45,8 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
                     date["create_date"]!!)
         }
     }
+
+
 
     val action = { st: PreparedStatement ->
         val rs = st.executeQuery()

@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.4_M12</version>
+        <version>0.4_M14</version>
     </parent>
     <artifactId>context</artifactId>
     <name>KotlinPrimavera Context Module</name>
     <packaging>jar</packaging>
-    <version>0.4_M12</version>
+    <version>0.4_M14</version>
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>

@@ -17,7 +17,6 @@
 package org.kotlinprimavera.core.env
 
 import org.springframework.core.env.PropertyResolver
-import org.funktionale.utils.GetterOperation
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,20 +25,20 @@ import org.funktionale.utils.GetterOperation
  * Time: 0:21
  */
 
-fun PropertyResolver.get(key: String): String? {
+operator fun PropertyResolver.get(key: String): String? {
     return this.getProperty(key)
 }
 
-fun PropertyResolver.get(key: String, defaultValue:String): String {
+operator fun PropertyResolver.get(key: String, defaultValue: String): String {
     return this.getProperty(key, defaultValue)
 }
 
-@suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
+operator @Suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
 fun<T> PropertyResolver.get(key: String, targetType: Class<T>): T? {
     return this.getProperty(key, targetType)
 }
 
-fun<T> PropertyResolver.get(key: String, targetType: Class<T>, defaultValue:T): T {
+operator fun<T> PropertyResolver.get(key: String, targetType: Class<T>, defaultValue: T): T {
     return this.getProperty(key, targetType, defaultValue)
 }
 

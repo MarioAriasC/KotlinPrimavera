@@ -17,14 +17,13 @@
 package org.kotlinprimavera.jdbc.core.namedparam
 
 import org.kotlinprimavera.beans.uninitialized
+import org.kotlinprimavera.jdbc.TestBean
 import org.kotlinprimavera.jdbc.core.JdbcTestBase
-import org.springframework.test.context.ContextConfiguration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
-import org.testng.Assert.*
+import org.springframework.test.context.ContextConfiguration
+import org.testng.Assert.assertEquals
 import org.testng.annotations.Test
-import org.kotlinprimavera.jdbc.TestBean
-import kotlin.properties.Delegates
 
 /**
  * Created by IntelliJ IDEA.

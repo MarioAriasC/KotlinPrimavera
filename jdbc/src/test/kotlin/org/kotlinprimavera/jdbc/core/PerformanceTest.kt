@@ -16,15 +16,18 @@
 
 package org.kotlinprimavera.jdbc.core
 
+import org.funktionale.partials.invoke
+import org.funktionale.partials.partially3
 import org.kotlinprimavera.beans.uninitialized
-import org.springframework.test.context.ContextConfiguration
-import org.testng.annotations.Test
+import org.kotlinprimavera.jdbc.TestBean
+import org.kotlinprimavera.util.stopWatch
+import org.kotlinprimavera.util.task
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.JdbcTemplate
-import org.kotlinprimavera.util.*
-import org.kotlinprimavera.jdbc.TestBean
-import org.testng.Assert
 import org.springframework.jdbc.core.RowMapper
+import org.springframework.test.context.ContextConfiguration
+import org.testng.Assert
+import org.testng.annotations.Test
 import java.sql.ResultSet
 
 
@@ -32,7 +35,6 @@ import java.sql.ResultSet
 public class PerformanceTest : JdbcTestBase() {
 
     @Autowired var template: JdbcTemplate = uninitialized()
-
 
 
     @Test
@@ -83,6 +85,22 @@ public class PerformanceTest : JdbcTestBase() {
         println("watch.prettyPrint() = ${watch.prettyPrint()}")
     }
 
+    fun f() {
 
+        val mapper: (ResultSet, Int, String) -> User = { rs, i, prefix ->
+            rs.extract { //DSL from KotlinPrimavera
+                User(string["${prefix}_name"]!!, int["${prefix}_age"]!!)
+            }
+        }
+
+        val doctors = template.query("select * from doctors", mapper(p3 = "dr"))
+
+        val nurses = template.query("select * from nurses", mapper.partially3("n"))
+
+        val patients = template.query("select * from patients", mapper(p3 = "p"))
+    }
 }
+
+
+data class User(val name: String, val age: Int)
 

@@ -24,5 +24,5 @@ package org.kotlinprimavera.jdbc.core
  */
 
 public abstract class AbstractBlobArgumentSetter<R>(override val setter: (Int, R) -> Unit,
-                                                       override val setter2: (Int, R, Long) -> Unit) : ArgumentSetter<R>, ArgumentSetter2<R, Long>
+                                                    override val setter2: (Int, R, Long) -> Unit) : ArgumentSetter<R>, ArgumentSetter2<R, Long>
 

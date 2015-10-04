@@ -21,7 +21,6 @@ import org.testng.Assert.assertEquals
 import org.testng.Assert.assertTrue
 import org.testng.Assert.fail
 import org.testng.annotations.Test
-import kotlin.reflect.jvm.java
 
 /**
  * Created by IntelliJ IDEA.
@@ -45,7 +44,7 @@ public class BeanUtilsTest {
             WithParameter::class.java.instantiate()
             fail("WithParameter was wrongly instantiated")
         } catch(e: BeanInstantiationException) {
-            assertTrue(e.getMessage().startsWith("Failed to instantiate [org.kotlinprimavera.beans.WithParameter]"))
+            assertTrue(e.getMessage()!!.startsWith("Failed to instantiate [org.kotlinprimavera.beans.WithParameter]"))
         }
 
     }
@@ -64,7 +63,7 @@ public class BeanUtilsTest {
             WithParameter::class.java.instantiateClass()
             fail("WithParameter was wrongly instantiated")
         } catch(e: BeanInstantiationException) {
-            assertTrue(e.getMessage().startsWith("Failed to instantiate [org.kotlinprimavera.beans.WithParameter]"))
+            assertTrue(e.getMessage()!!.startsWith("Failed to instantiate [org.kotlinprimavera.beans.WithParameter]"))
         }
 
         //Assignable type
@@ -93,14 +92,14 @@ public class BeanUtilsTest {
             WithParameter::class.java.getDeclaredConstructor().instantiateClass()
             fail("WithParameter was wrongly instantiated")
         } catch(e: NoSuchMethodException) {
-            assertEquals(e.getMessage(),"org.kotlinprimavera.beans.WithParameter.<init>()")
+            assertEquals(e.getMessage(), "org.kotlinprimavera.beans.WithParameter.<init>()")
         }
 
         try {
             DefaultParameter::class.java.getDeclaredConstructor(String::class.java).instantiateClass()
             fail("DefaultParameter wrongly instantiated")
         } catch(e: BeanInstantiationException) {
-            assertTrue(e.getMessage().startsWith("Failed to instantiate [org.kotlinprimavera.beans.DefaultParameter]: Illegal arguments for constructor"))
+            assertTrue(e.getMessage()!!.startsWith("Failed to instantiate [org.kotlinprimavera.beans.DefaultParameter]: Illegal arguments for constructor"))
         }
 
 
@@ -109,7 +108,7 @@ public class BeanUtilsTest {
     @Test fun testFindMethod() {
         val dp = DefaultParameter()
         //calling ```invoke``` method
-        assertEquals(dp.javaClass.findMethod("component1")(dp),"foo")
+        assertEquals(dp.javaClass.findMethod("component1")(dp), "foo")
         try {
             dp.javaClass.findMethod("component2")(dp)
             fail("Method component2 doesn't exist")
@@ -121,7 +120,7 @@ public class BeanUtilsTest {
     @Test fun testFindDeclaredMethod() {
         val dp = DefaultParameter()
         //calling ```invoke``` method
-        assertEquals(dp.javaClass.findDeclaredMethod("component1")(dp),"foo")
+        assertEquals(dp.javaClass.findDeclaredMethod("component1")(dp), "foo")
         try {
             dp.javaClass.findDeclaredMethod("component2")(dp)
             fail("Method component2 doesn't exist")

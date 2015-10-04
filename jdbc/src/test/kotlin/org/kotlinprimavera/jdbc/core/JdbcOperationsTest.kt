@@ -25,14 +25,13 @@ import org.testng.Assert.assertEquals
 import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
 import java.sql.*
-import org.kotlinprimavera.jdbc.core.JdbcTestBase.*
 
 
 /**
  * Created by IntelliJ IDEA.
  * @author Mario Arias
-* Date: 20/08/13
-* Time: 23:27
+ * Date: 20/08/13
+ * Time: 23:27
  */
 @ContextConfiguration
 public class JdbcOperationsTest : JdbcTestBase() {

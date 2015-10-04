@@ -24,11 +24,11 @@ package org.kotlinprimavera.jdbc.core
  */
 public class GetFieldsToken<T>(val withFieldName: (String) -> T, val withIndex: (Int) -> T) {
 
-    public fun get(columnIndex: Int): T {
+    operator public fun get(columnIndex: Int): T {
         return withIndex(columnIndex)
     }
 
-    public fun get(columnLabel: String): T {
+    operator public fun get(columnLabel: String): T {
         return withFieldName(columnLabel)
     }
 }

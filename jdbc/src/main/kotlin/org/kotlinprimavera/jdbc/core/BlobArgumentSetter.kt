@@ -16,8 +16,8 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import java.sql.Blob
 import java.io.InputStream
+import java.sql.Blob
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +30,7 @@ public class BlobArgumentSetter(val blobSetter: (Int, Blob) -> Unit,
                                 override val setter: (Int, InputStream) -> Unit,
                                 override val setter2: (Int, InputStream, Long) -> Unit) : AbstractBlobArgumentSetter<InputStream>(setter, setter2) {
 
-    public fun set(index: Int, blob: Blob) {
+    operator public fun set(index: Int, blob: Blob) {
         blobSetter(index, blob)
     }
 }

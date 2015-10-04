@@ -24,28 +24,28 @@ import org.springframework.beans.factory.ListableBeanFactory
 /**
  * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
  */
-public fun BeanFactory.get(name: String): Any {
+operator public fun BeanFactory.get(name: String): Any {
     return getBean(name)
 }
 
 /**
  * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
  */
-public fun<T> BeanFactory.get(requiredType: Class<T>): T {
+operator public fun<T> BeanFactory.get(requiredType: Class<T>): T {
     return getBean(requiredType)
 }
 
 /**
  * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
  */
-public fun<T> BeanFactory.get(name: String, requiredType: Class<T>): T {
+operator public fun<T> BeanFactory.get(name: String, requiredType: Class<T>): T {
     return getBean(name, requiredType)
 }
 
 /**
  * Util function extension to add array like access to [org.springframework.beans.factory.BeanFactory]
  */
-public fun BeanFactory.get(name: String, vararg args: Any): Any {
+operator public fun BeanFactory.get(name: String, vararg args: Any): Any {
     return getBean(name, *args)
 }
 
@@ -54,11 +54,9 @@ public fun String.isFactoryDereference(): Boolean {
 }
 
 
-
 public fun String.transformedBeanName(): String {
     return BeanFactoryUtils.transformedBeanName(this)
 }
-
 
 
 public fun String.isGeneratedBeanName(): Boolean {
@@ -66,11 +64,9 @@ public fun String.isGeneratedBeanName(): Boolean {
 }
 
 
-
 public fun String.originalBeanName(): String {
     return BeanFactoryUtils.originalBeanName(this)
 }
-
 
 
 public fun ListableBeanFactory.countBeansIncludingAncestors(): Int {
@@ -78,11 +74,9 @@ public fun ListableBeanFactory.countBeansIncludingAncestors(): Int {
 }
 
 
-
 public fun ListableBeanFactory.beanNamesIncludingAncestors(): Array<String> {
     return BeanFactoryUtils.beanNamesIncludingAncestors(this)
 }
-
 
 
 public fun ListableBeanFactory.beanNamesForTypeIncludingAncestors(type: Class<*>, includeNonSingletons: Boolean, allowEagerInt: Boolean): Array<String> {
@@ -90,43 +84,42 @@ public fun ListableBeanFactory.beanNamesForTypeIncludingAncestors(type: Class<*>
 }
 
 
-
 public fun ListableBeanFactory.beanNamesForTypeIncludingAncestors(type: Class<*>): Array<String> {
     return BeanFactoryUtils.beanNamesForTypeIncludingAncestors(this, type)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beansOfTypeIncludingAncestors(type: Class<T>, includeNonSingletons: Boolean, allowEagerInt: Boolean): Map<String, T> {
     return BeanFactoryUtils.beansOfTypeIncludingAncestors(this, type, includeNonSingletons, allowEagerInt)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beansOfTypeIncludingAncestors(type: Class<T>): Map<String, T> {
     return BeanFactoryUtils.beansOfTypeIncludingAncestors(this, type)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beanOfTypeIncludingAncestors(type: Class<T>, includeNonSingletons: Boolean, allowEagerInt: Boolean): T {
     return BeanFactoryUtils.beanOfTypeIncludingAncestors(this, type, includeNonSingletons, allowEagerInt)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beanOfTypeIncludingAncestors(type: Class<T>): T {
     return BeanFactoryUtils.beanOfTypeIncludingAncestors(this, type)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beanOfType(type: Class<T>, includeNonSingletons: Boolean, allowEagerInt: Boolean): T {
     return BeanFactoryUtils.beanOfType(this, type, includeNonSingletons, allowEagerInt)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun<T> ListableBeanFactory.beanOfType(type: Class<T>): T {
     return BeanFactoryUtils.beanOfType(this, type)
 }

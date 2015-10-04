@@ -16,7 +16,6 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import java.sql.Clob
 import java.io.Reader
 import java.sql.NClob
 
@@ -28,10 +27,10 @@ import java.sql.NClob
  */
 
 public class NClobArgumentSetter(val blobSetter: (Int, NClob) -> Unit,
-                                override val setter: (Int, Reader) -> Unit,
-                                override val setter2: (Int, Reader, Long) -> Unit) : AbstractBlobArgumentSetter<Reader>(setter, setter2) {
+                                 override val setter: (Int, Reader) -> Unit,
+                                 override val setter2: (Int, Reader, Long) -> Unit) : AbstractBlobArgumentSetter<Reader>(setter, setter2) {
 
-    public fun set(index: Int, clob: NClob) {
+    operator public fun set(index: Int, clob: NClob) {
         blobSetter(index, clob)
     }
 }

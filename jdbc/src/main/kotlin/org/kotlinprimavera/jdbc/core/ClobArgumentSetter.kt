@@ -16,8 +16,8 @@
 
 package org.kotlinprimavera.jdbc.core
 
-import java.sql.Clob
 import java.io.Reader
+import java.sql.Clob
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +30,7 @@ public class ClobArgumentSetter(val blobSetter: (Int, Clob) -> Unit,
                                 override val setter: (Int, Reader) -> Unit,
                                 override val setter2: (Int, Reader, Long) -> Unit) : AbstractBlobArgumentSetter<Reader>(setter, setter2) {
 
-    public fun set(index: Int, clob: Clob) {
+    operator public fun set(index: Int, clob: Clob) {
         blobSetter(index, clob)
     }
 }

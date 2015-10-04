@@ -16,17 +16,17 @@
 
 package org.kotlinprimavera.jdbc.core.config
 
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType
 import javax.sql.DataSource
 
-public fun embeddedDatabase(type: EmbeddedDatabaseType, body:EmbeddedDatabaseTag.() -> Unit):DataSource {
+public fun embeddedDatabase(type: EmbeddedDatabaseType, body: EmbeddedDatabaseTag.() -> Unit): DataSource {
     val tag = EmbeddedDatabaseTag()
     tag.body()
     val scripts = tag.scripts
 
     val factory = EmbeddedDatabaseFactory()
-    with(factory){
+    with(factory) {
         setDatabaseType(type)
 
     }

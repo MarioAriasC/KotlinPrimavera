@@ -31,7 +31,6 @@ public fun Annotation.copyPropertiesToBean(bean: Any, vararg excludedProperties:
 }
 
 
-
 public fun Annotation.copyPropertiesToBean(bean: Any, valueResolver: StringValueResolver, vararg excludedProperties: String) {
     return AnnotationBeanUtils.copyPropertiesToBean(this, bean, valueResolver, *excludedProperties)
 }

@@ -22,7 +22,7 @@ package org.kotlinprimavera.jdbc.core.config
  * Date: 25/01/15
  * Time: 1:10 AM
  */
-public data class ScriptTag(val location:String,
-                            val encoding:String? = null,
-                            val separator:String,
-                            val execution:ExecutionValue = ExecutionValue.INIT)
+public data class ScriptTag(val location: String,
+                            val encoding: String? = null,
+                            val separator: String,
+                            val execution: ExecutionValue = ExecutionValue.INIT)

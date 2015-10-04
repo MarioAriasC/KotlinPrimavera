@@ -26,8 +26,8 @@ import java.sql.ResultSet
 /**
  * Created by IntelliJ IDEA.
  * @author Mario Arias
-* Date: 20/08/13
-* Time: 23:28
+ * Date: 20/08/13
+ * Time: 23:28
  */
 public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTests() {
 
@@ -45,7 +45,6 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
                     date["create_date"]!!)
         }
     }
-
 
 
     val action = { st: PreparedStatement ->

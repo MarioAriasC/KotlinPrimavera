@@ -16,7 +16,7 @@
 
 package org.kotlinprimavera.jdbc
 
-import java.util.Date
+import java.util.*
 
 /**
  * Created by IntelliJ IDEA.

@@ -30,31 +30,31 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistry
  * Time: 2:29 PM
  */
 
-@throws(ClassNotFoundException::class)
+@Throws(ClassNotFoundException::class)
 public fun String.createBeanDefinition(className: String, classLoader: ClassLoader): AbstractBeanDefinition {
     return BeanDefinitionReaderUtils.createBeanDefinition(this, className, classLoader)
 }
 
 
-@throws(BeanDefinitionStoreException::class)
+@Throws(BeanDefinitionStoreException::class)
 public fun BeanDefinition.generateBeanName(registry: BeanDefinitionRegistry): String {
     return BeanDefinitionReaderUtils.generateBeanName(this, registry)
 }
 
 
-@throws(BeanDefinitionStoreException::class)
+@Throws(BeanDefinitionStoreException::class)
 public fun BeanDefinition.generateBeanName(registry: BeanDefinitionRegistry, isInnerBean: Boolean): String {
     return BeanDefinitionReaderUtils.generateBeanName(this, registry, isInnerBean)
 }
 
 
-@throws(BeanDefinitionStoreException::class)
+@Throws(BeanDefinitionStoreException::class)
 public fun BeanDefinitionHolder.registerBeanDefinition(registry: BeanDefinitionRegistry) {
     return BeanDefinitionReaderUtils.registerBeanDefinition(this, registry)
 }
 
 
-@throws(BeanDefinitionStoreException::class)
+@Throws(BeanDefinitionStoreException::class)
 public fun AbstractBeanDefinition.registerWithGeneratedName(registry: BeanDefinitionRegistry): String {
     return BeanDefinitionReaderUtils.registerWithGeneratedName(this, registry)
 }

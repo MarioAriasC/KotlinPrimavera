@@ -26,7 +26,7 @@ public class ArgumentWithLengthSetter<T>(override val setter: (Int, T) -> Unit,
                                          override val setter2: (Int, T, Int) -> Unit,
                                          val setterWithLong: (Int, T, Long) -> Unit) : ArgumentSetter<T>, ArgumentSetter2<T, Int> {
 
-    public fun set(i: Int, lenght: Long, t: T) {
+    operator public fun set(i: Int, lenght: Long, t: T) {
         setterWithLong(i, t, lenght)
     }
 }

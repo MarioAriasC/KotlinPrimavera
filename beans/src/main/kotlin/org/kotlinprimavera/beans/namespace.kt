@@ -39,25 +39,25 @@ import java.lang.reflect.Method
  */
 public fun<T> uninitialized(): T = null as T
 
-@throws(BeanInstantiationException::class)
+@Throws(BeanInstantiationException::class)
 public fun<T> Class<T>.instantiate(): T {
     return BeanUtils.instantiate(this)
 }
 
 
-@throws(BeanInstantiationException::class)
+@Throws(BeanInstantiationException::class)
 public fun<T> Class<T>.instantiateClass(): T {
     return BeanUtils.instantiateClass(this)
 }
 
 
-@throws(BeanInstantiationException::class)
+@Throws(BeanInstantiationException::class)
 public fun<T> Constructor<T>.instantiateClass(vararg args: Any): T {
     return BeanUtils.instantiateClass(this, *args)
 }
 
 
-@throws(BeanInstantiationException::class)
+@Throws(BeanInstantiationException::class)
 public fun<T> Class<*>.instantiateClass(assignableTo: Class<T>): T {
     return BeanUtils.instantiateClass(this, assignableTo)
 }
@@ -73,19 +73,19 @@ public fun Class<*>.findDeclaredMethod(methodName: String, vararg paramTypes: Cl
 }
 
 
-@throws(IllegalArgumentException::class)
+@Throws(IllegalArgumentException::class)
 public fun Class<*>.findMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findMethodWithMinimalParameters(this, methodName)
 }
 
 
-@throws(IllegalArgumentException::class)
+@Throws(IllegalArgumentException::class)
 public fun Array<Method>.findMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findMethodWithMinimalParameters(this, methodName)
 }
 
 
-@throws(IllegalArgumentException::class)
+@Throws(IllegalArgumentException::class)
 public fun Class<*>.findDeclaredMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findDeclaredMethodWithMinimalParameters(this, methodName)
 }
@@ -96,25 +96,25 @@ public fun String.resolveSignature(clazz: Class<*>): Method {
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Class<*>.getPropertyDescriptors(): Array<PropertyDescriptor> {
     return BeanUtils.getPropertyDescriptors(this)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Class<*>.getPropertyDescriptor(propertyName: String): PropertyDescriptor {
     return BeanUtils.getPropertyDescriptor(this, propertyName)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Method.findPropertyForMethod(): PropertyDescriptor {
     return BeanUtils.findPropertyForMethod(this)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Method.findPropertyForMethod(clazz: Class<*>): PropertyDescriptor {
     return BeanUtils.findPropertyForMethod(this, clazz)
 }
@@ -145,18 +145,18 @@ public fun Class<*>.isSimpleValueType(): Boolean {
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Any.copyProperties(target: Any) {
     return BeanUtils.copyProperties(this, target)
 }
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Any.copyProperties(target: Any, vararg ignoredProperties: String) {
     return BeanUtils.copyProperties(this, target, *ignoredProperties)
 }
 
 
-@throws(BeansException::class)
+@Throws(BeansException::class)
 public fun Any.copyProperties(target: Any, ignoredProperties: Class<*>) {
     return BeanUtils.copyProperties(this, target, ignoredProperties)
 }
@@ -166,17 +166,14 @@ public fun String.getPropertyName(): String {
 }
 
 
-
 public fun String.isNestedOrIndexedProperty(): Boolean {
     return PropertyAccessorUtils.isNestedOrIndexedProperty(this)
 }
 
 
-
 public fun String.getFirstNestedPropertySeparatorIndex(): Int {
     return PropertyAccessorUtils.getFirstNestedPropertySeparatorIndex(this)
 }
-
 
 
 public fun String.getLastNestedPropertySeparatorIndex(): Int {
@@ -188,11 +185,9 @@ public fun String.matchesProperty(propertyPath: String): Boolean {
 }
 
 
-
 public fun String.canonicalPropertyName(): String {
     return PropertyAccessorUtils.canonicalPropertyName(this)
 }
-
 
 
 public fun Array<String>.canonicalPropertyNames(): Array<String> {

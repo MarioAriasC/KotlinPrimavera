@@ -16,15 +16,16 @@
 
 package org.kotlinprimavera.core.env
 
-import java.util.Properties
-import kotlin.properties.Delegates
 import org.springframework.core.env.MutablePropertySources
-import org.springframework.core.env.PropertyResolver
-import org.testng.annotations.BeforeMethod
-import org.springframework.core.env.PropertySourcesPropertyResolver
 import org.springframework.core.env.PropertiesPropertySource
+import org.springframework.core.env.PropertyResolver
+import org.springframework.core.env.PropertySourcesPropertyResolver
+import org.testng.Assert.assertEquals
+import org.testng.Assert.assertNull
+import org.testng.annotations.BeforeMethod
 import org.testng.annotations.Test
-import org.testng.Assert.*
+import java.util.*
+import kotlin.properties.Delegates
 
 /**
  * Created by IntelliJ IDEA.
@@ -52,17 +53,17 @@ public class PropertyResolverTests {
         testProperties["foo"] = "bar"
         testProperties["num"] = 5
         assertEquals(propertyResolver["foo"], "bar")
-        assertEquals(propertyResolver["num", javaClass<Int>()], 5)
+        assertEquals(propertyResolver["num", Int::class.java], 5)
     }
 
     @Test
     public fun getPropertyWithDefaultValue() {
         assertEquals(propertyResolver["foo", "myDefault"], "myDefault")
-        assertEquals(propertyResolver["num", javaClass<Int>(), 42], 42)
+        assertEquals(propertyResolver["num", Int::class.java, 42], 42)
         testProperties["foo"] = "bar"
         testProperties["num"] = 5
         assertEquals(propertyResolver["foo", "myDefault"], "bar")
-        assertEquals(propertyResolver["num", javaClass<Int>(), 13], 5)
+        assertEquals(propertyResolver["num", Int::class.java, 13], 5)
     }
 
 }

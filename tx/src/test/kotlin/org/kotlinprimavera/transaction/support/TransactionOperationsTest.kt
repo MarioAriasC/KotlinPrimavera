@@ -16,15 +16,15 @@
 
 package org.kotlinprimavera.transaction.support
 
-import org.springframework.test.context.ContextConfiguration
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.transaction.support.TransactionTemplate
-import org.testng.annotations.Test
-import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests
-import org.testng.Assert
 import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.transaction.annotation.Transactional
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests
 import org.springframework.transaction.annotation.Propagation
+import org.springframework.transaction.annotation.Transactional
+import org.springframework.transaction.support.TransactionTemplate
+import org.testng.Assert
+import org.testng.annotations.Test
 
 /**
  * Created by IntelliJ IDEA.

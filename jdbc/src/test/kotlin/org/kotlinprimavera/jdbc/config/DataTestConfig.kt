@@ -17,10 +17,10 @@
 package org.kotlinprimavera.jdbc.config
 
 import org.kotlinprimavera.jdbc.core.config.embeddedDatabase
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType
 import javax.sql.DataSource
-import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Bean
 
 /**
  * Created by IntelliJ IDEA.

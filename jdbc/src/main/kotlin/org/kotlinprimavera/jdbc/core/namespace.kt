@@ -16,14 +16,16 @@
 
 package org.kotlinprimavera.jdbc.core
 
+import org.funktionale.option.Option
+import org.funktionale.option.Option.None
+import org.funktionale.option.Option.Some
 import org.springframework.dao.EmptyResultDataAccessException
-import org.funktionale.option.*
-import java.sql.ResultSet
-import java.sql.PreparedStatement
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.jdbc.core.ResultSetExtractor
-import org.springframework.jdbc.core.RowMapper
 import org.springframework.jdbc.core.RowCallbackHandler
+import org.springframework.jdbc.core.RowMapper
+import java.sql.PreparedStatement
+import java.sql.ResultSet
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,7 +34,7 @@ import org.springframework.jdbc.core.RowCallbackHandler
  * Time: 23:07
  */
 
-@suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
+@Suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
 public fun emptyResultToNull<T>(body: () -> T): T? = try {
     body()
 } catch(e: EmptyResultDataAccessException) {
@@ -56,7 +58,7 @@ public inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T
     return ResultSetGetFieldTokens(this).body()
 }
 
-@deprecated("use ResultSet.extract. Will be deleted in 0.5", ReplaceWith("extract(body)"))
+@Deprecated("use ResultSet.extract. Will be deleted in 0.5", ReplaceWith("extract(body)"))
 public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
     return extract(body)
 }

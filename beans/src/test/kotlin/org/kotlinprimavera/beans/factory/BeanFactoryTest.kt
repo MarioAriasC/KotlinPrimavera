@@ -16,19 +16,20 @@
 
 package org.kotlinprimavera.beans.factory
 
-import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Bean
-import org.testng.annotations.Test
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
-import org.testng.Assert.*
 import org.springframework.beans.BeansException
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
-import org.springframework.beans.factory.config.ConfigurableBeanFactory
+import org.testng.Assert.assertEquals
+import org.testng.Assert.assertTrue
+import org.testng.Assert.fail
+import org.testng.annotations.Test
 
 
 public class BeanFactoryTest {
 
-    private val context = AnnotationConfigApplicationContext(javaClass<TestConfig>())
+    private val context = AnnotationConfigApplicationContext(TestConfig::class.java)
 
     @Test
     fun testGetA() {
@@ -39,7 +40,7 @@ public class BeanFactoryTest {
     @Test
     fun testGetB() {
         try {
-            context[javaClass<B>()]
+            context[B::class.java]
         } catch(e: BeansException) {
             fail()
         }
@@ -47,7 +48,7 @@ public class BeanFactoryTest {
 
     @Test
     fun testGetC() {
-        val c1 = context["c1", javaClass<C>()]
+        val c1 = context["c1", C::class.java]
         assertEquals(c1.value, 1)
     }
 

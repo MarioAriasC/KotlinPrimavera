@@ -26,7 +26,7 @@ public interface ArgumentSetter2<T, A> {
 
     val setter2: (Int, T, A) -> Unit
 
-    public fun set(index: Int, a: A, t: T) {
+    operator public fun set(index: Int, a: A, t: T) {
         setter2(index, t, a)
     }
 }

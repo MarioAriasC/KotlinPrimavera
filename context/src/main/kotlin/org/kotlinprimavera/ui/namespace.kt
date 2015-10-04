@@ -26,7 +26,7 @@ import org.springframework.ui.ModelMap
  * Time: 1:08
  */
 
-public fun Model.set(attributeName: String, attributeValue: Any?) {
+operator public fun Model.set(attributeName: String, attributeValue: Any?) {
     this.addAttribute(attributeName, attributeValue)
 }
 
@@ -40,7 +40,7 @@ public fun Model.mergeAttributes(vararg attributes: Pair<String, Any?>): Model {
     return this
 }
 
-public fun ModelMap.set(attributeName: String, attributeValue: Any?) {
+operator public fun ModelMap.set(attributeName: String, attributeValue: Any?) {
     this.addAttribute(attributeName, attributeValue)
 }
 

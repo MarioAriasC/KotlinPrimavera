@@ -17,8 +17,8 @@
 package org.kotlinprimavera.core.style
 
 import org.springframework.core.style.ToStringCreator
-import org.springframework.core.style.ValueStyler
 import org.springframework.core.style.ToStringStyler
+import org.springframework.core.style.ValueStyler
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +28,7 @@ import org.springframework.core.style.ToStringStyler
  */
 
 public val ToStringCreator.append: ToStringCreatorAppendTokens
-    get(){
+    get() {
         return ToStringCreatorAppendTokens(this)
     }
 

@@ -29,7 +29,7 @@ import java.sql.ResultSet
  * Date: 20/08/13
  * Time: 23:28
  */
-public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTests() {
+abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTests() {
 
     val select = "select * from test_bean "
 
@@ -38,7 +38,7 @@ public abstract class JdbcTestBase : AbstractTransactionalTestNGSpringContextTes
     val python = "python"
     val description = "description"
 
-    inline val mapperFunction = { rs: ResultSet, i: Int ->
+    val mapperFunction = { rs: ResultSet, i: Int ->
         rs.extract {
             TestBean(int["id"]!!,
                     string["description"]!!,

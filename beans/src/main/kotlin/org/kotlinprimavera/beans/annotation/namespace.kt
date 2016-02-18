@@ -26,11 +26,11 @@ import org.springframework.util.StringValueResolver
  * Time: 2:23 PM
  */
 
-public fun Annotation.copyPropertiesToBean(bean: Any, vararg excludedProperties: String) {
+fun Annotation.copyPropertiesToBean(bean: Any, vararg excludedProperties: String) {
     return AnnotationBeanUtils.copyPropertiesToBean(this, bean, *excludedProperties)
 }
 
 
-public fun Annotation.copyPropertiesToBean(bean: Any, valueResolver: StringValueResolver, vararg excludedProperties: String) {
+fun Annotation.copyPropertiesToBean(bean: Any, valueResolver: StringValueResolver, vararg excludedProperties: String) {
     return AnnotationBeanUtils.copyPropertiesToBean(this, bean, valueResolver, *excludedProperties)
 }

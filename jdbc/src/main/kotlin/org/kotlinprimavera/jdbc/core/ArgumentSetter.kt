@@ -22,11 +22,11 @@ package org.kotlinprimavera.jdbc.core
  * Date: 21/08/13
  * Time: 22:04
  */
-public interface ArgumentSetter<T> {
+interface ArgumentSetter<T> {
 
     val setter: (Int, T) -> Unit
 
-    operator public fun set(index: Int, t: T) {
+    operator fun set(index: Int, t: T) {
         setter(index, t)
     }
 }

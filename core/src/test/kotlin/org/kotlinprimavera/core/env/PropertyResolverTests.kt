@@ -33,21 +33,19 @@ import kotlin.properties.Delegates
  * Date: 22/07/14
  * Time: 0:57
  */
-public class PropertyResolverTests {
+class PropertyResolverTests {
     private var testProperties: Properties by Delegates.notNull()
     private var propertySources: MutablePropertySources by Delegates.notNull()
     private var propertyResolver: PropertyResolver by Delegates.notNull()
 
-    @BeforeMethod
-    public fun setUp() {
+    @BeforeMethod fun setUp() {
         propertySources = MutablePropertySources()
         propertyResolver = PropertySourcesPropertyResolver(propertySources)
         testProperties = Properties()
         propertySources.addFirst(PropertiesPropertySource("testProperties", testProperties))
     }
 
-    @Test
-    public fun getProperty() {
+    @Test fun getProperty() {
         assertNull(propertyResolver["foo"])
         assertNull(propertyResolver["num"])
         testProperties["foo"] = "bar"
@@ -56,8 +54,7 @@ public class PropertyResolverTests {
         assertEquals(propertyResolver["num", Int::class.java], 5)
     }
 
-    @Test
-    public fun getPropertyWithDefaultValue() {
+    @Test fun getPropertyWithDefaultValue() {
         assertEquals(propertyResolver["foo", "myDefault"], "myDefault")
         assertEquals(propertyResolver["num", Int::class.java, 42], 42)
         testProperties["foo"] = "bar"

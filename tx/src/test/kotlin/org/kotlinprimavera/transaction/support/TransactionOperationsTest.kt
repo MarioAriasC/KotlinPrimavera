@@ -32,16 +32,15 @@ import org.testng.annotations.Test
  * Date: 26/12/13
  * Time: 20:06
  */
-@ContextConfiguration
-public class TransactionOperationsTest : AbstractTransactionalTestNGSpringContextTests() {
-    @Autowired var txTemplate: TransactionTemplate? = null
-    @Autowired var template: JdbcTemplate? = null
+@ContextConfiguration class TransactionOperationsTest : AbstractTransactionalTestNGSpringContextTests() {
+    @Autowired lateinit var txTemplate: TransactionTemplate
+    @Autowired lateinit var template: JdbcTemplate
 
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     fun testExecute() {
-        txTemplate!!.execute { status ->
-            template!!.update("delete from test_bean")
+        txTemplate.execute { status ->
+            template.update("delete from test_bean")
             status.setRollbackOnly()
         }
 

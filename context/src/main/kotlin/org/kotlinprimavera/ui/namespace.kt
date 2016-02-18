@@ -26,30 +26,30 @@ import org.springframework.ui.ModelMap
  * Time: 1:08
  */
 
-operator public fun Model.set(attributeName: String, attributeValue: Any?) {
+operator fun Model.set(attributeName: String, attributeValue: Any?) {
     this.addAttribute(attributeName, attributeValue)
 }
 
-public fun Model.addAllAttributes(vararg attributes: Pair<String, Any?>): Model {
+fun Model.addAllAttributes(vararg attributes: Pair<String, Any?>): Model {
     this.addAllAttributes(mapOf(*attributes))
     return this
 }
 
-public fun Model.mergeAttributes(vararg attributes: Pair<String, Any?>): Model {
+fun Model.mergeAttributes(vararg attributes: Pair<String, Any?>): Model {
     this.mergeAttributes(mapOf(*attributes))
     return this
 }
 
-operator public fun ModelMap.set(attributeName: String, attributeValue: Any?) {
+operator fun ModelMap.set(attributeName: String, attributeValue: Any?) {
     this.addAttribute(attributeName, attributeValue)
 }
 
-public fun ModelMap.addAllAttributes(vararg attributes: Pair<String, Any?>): ModelMap {
+fun ModelMap.addAllAttributes(vararg attributes: Pair<String, Any?>): ModelMap {
     this.addAllAttributes(mapOf(*attributes))
     return this
 }
 
-public fun ModelMap.mergeAttributes(vararg attributes: Pair<String, Any?>): ModelMap {
+fun ModelMap.mergeAttributes(vararg attributes: Pair<String, Any?>): ModelMap {
     this.mergeAttributes(mapOf(*attributes))
     return this
 }

@@ -22,7 +22,7 @@
 
     <groupId>org.kotlinprimavera</groupId>
     <artifactId>parent</artifactId>
-    <version>0.4_M14</version>
+    <version>0.5_beta</version>
     <packaging>pom</packaging>
     <name>KotlinPrimavera</name>
     <description>Spring Framework Support libraries for Kotlin</description>
@@ -45,9 +45,11 @@
         <module>jdbc</module>
         <module>tx</module>
         <module>webmvc</module>
+        <module>security</module>
     </modules>
     <properties>
-        <kotlin.version>0.14.449</kotlin.version>
+        <kotlin.version>1.0.0</kotlin.version>
+        <funktionale.version>0.8</funktionale.version>
     </properties>
     <repositories>
         <repository>
@@ -68,7 +70,7 @@
             <dependency>
                 <groupId>io.spring.platform</groupId>
                 <artifactId>platform-bom</artifactId>
-                <version>1.1.3.RELEASE</version>
+                <version>2.0.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -125,7 +127,7 @@
         <dependency>
             <groupId>org.funktionale</groupId>
             <artifactId>funktionale</artifactId>
-            <version>0.6_M13</version>
+            <version>${funktionale.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>

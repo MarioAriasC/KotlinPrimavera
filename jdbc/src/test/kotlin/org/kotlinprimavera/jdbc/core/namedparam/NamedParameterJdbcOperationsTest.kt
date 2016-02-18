@@ -31,8 +31,7 @@ import org.testng.annotations.Test
  * Date: 27/08/13
  * Time: 1:04
  */
-@ContextConfiguration
-public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
+@ContextConfiguration class NamedParameterJdbcOperationsTest : JdbcTestBase() {
     @Autowired var template: NamedParameterJdbcTemplate = uninitialized()
 
     private val id = "id"
@@ -61,10 +60,10 @@ public class NamedParameterJdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template.query(selectIdByNamedDescription, descriptionToPythonMap, rsFunction), 1)
 
-        assertEquals(template.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction).size(), 4)
+        assertEquals(template.query(selectByIdGreatherThan, TestBean(id = 1).toSqlParameterSource(), mapperFunction).size, 4)
 
 
-        assertEquals(template.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size(), 4)
+        assertEquals(template.query(selectByIdGreatherThan, mapOf(id to 1), mapperFunction).size, 4)
     }
 
     @Test fun testQueryForObject() {

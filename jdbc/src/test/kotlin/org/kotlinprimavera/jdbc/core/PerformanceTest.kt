@@ -31,8 +31,7 @@ import org.testng.annotations.Test
 import java.sql.ResultSet
 
 
-@ContextConfiguration
-public class PerformanceTest : JdbcTestBase() {
+@ContextConfiguration class PerformanceTest : JdbcTestBase() {
 
     @Autowired var template: JdbcTemplate = uninitialized()
 
@@ -44,7 +43,7 @@ public class PerformanceTest : JdbcTestBase() {
             for (i in 1..10) {
                 task("With DSL as parameter: $i run") {
                     val result = template.query(select, mapperFunction)
-                    Assert.assertEquals(result.size(), 1000)
+                    Assert.assertEquals(result.size, 1000)
                 }
 
                 task("With DSL in line: $i run ") {
@@ -55,7 +54,7 @@ public class PerformanceTest : JdbcTestBase() {
                                     date["create_date"]!!)
                         }
                     }
-                    Assert.assertEquals(result.size(), 1000)
+                    Assert.assertEquals(result.size, 1000)
                 }
 
                 task("Without DSL: $i run") {
@@ -65,7 +64,7 @@ public class PerformanceTest : JdbcTestBase() {
                                 rs.getDate("create_date")!!)
 
                     }
-                    Assert.assertEquals(result.size(), 1000)
+                    Assert.assertEquals(result.size, 1000)
                 }
 
                 task("Without SAM: $i run") {
@@ -76,7 +75,7 @@ public class PerformanceTest : JdbcTestBase() {
                                     rs.getDate("create_date")!!)
                         }
                     })
-                    Assert.assertEquals(result.size(), 1000)
+                    Assert.assertEquals(result.size, 1000)
                 }
             }
 

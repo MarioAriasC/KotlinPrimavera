@@ -24,6 +24,6 @@ import java.util.*
  * Date: 20/08/13
  * Time: 23:22
  */
-public data class TestBean(var id: Int? = null,
+data class TestBean(var id: Int? = null,
                            var description: String? = null,
                            var createDate: Date? = null)

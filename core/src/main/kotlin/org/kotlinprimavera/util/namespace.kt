@@ -16,6 +16,7 @@
 
 package org.kotlinprimavera.util
 
+import org.funktionale.utils.GetterSetterOperation
 import org.springframework.util.StopWatch
 
 fun stopWatch(id: String = "", body: StopWatch.() -> Unit): StopWatch {
@@ -30,9 +31,13 @@ fun stopWatch(id: String = "", body: StopWatch.() -> Unit): StopWatch {
 }*/
 
 
-fun StopWatch.task<T>(name: String = "", body: () -> T): T {
+fun <T> StopWatch.task(name: String = "", body: () -> T): T {
     start(name)
     val result = body()
     stop()
     return result
 }
+
+val sysProperty: GetterSetterOperation<String, String> = GetterSetterOperation(
+        { k -> System.getProperty(k) },
+        { k, v -> System.setProperty(k, v) })

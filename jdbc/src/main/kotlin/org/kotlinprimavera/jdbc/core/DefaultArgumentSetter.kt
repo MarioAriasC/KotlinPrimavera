@@ -22,4 +22,4 @@ package org.kotlinprimavera.jdbc.core
  * Date: 23/08/13
  * Time: 21:01
  */
-public class DefaultArgumentSetter<T>(override val setter: (Int, T) -> Unit) : ArgumentSetter<T>
+class DefaultArgumentSetter<T>(override val setter: (Int, T) -> Unit) : ArgumentSetter<T>

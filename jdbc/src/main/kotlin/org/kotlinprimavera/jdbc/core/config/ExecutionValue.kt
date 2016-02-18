@@ -22,7 +22,7 @@ package org.kotlinprimavera.jdbc.core.config
  * Date: 25/01/15
  * Time: 1:16 AM
  */
-public enum class ExecutionValue(val value: String) {
+enum class ExecutionValue(val value: String) {
     INIT("INIT"),
     DESTROY("DESTROY")
 }

@@ -20,7 +20,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType
 import javax.sql.DataSource
 
-public fun embeddedDatabase(type: EmbeddedDatabaseType, body: EmbeddedDatabaseTag.() -> Unit): DataSource {
+fun embeddedDatabase(type: EmbeddedDatabaseType, body: EmbeddedDatabaseTag.() -> Unit): DataSource {
     val tag = EmbeddedDatabaseTag()
     tag.body()
     val scripts = tag.scripts
@@ -30,5 +30,5 @@ public fun embeddedDatabase(type: EmbeddedDatabaseType, body: EmbeddedDatabaseTa
         setDatabaseType(type)
 
     }
-    return factory.getDatabase()
+    return factory.database
 }

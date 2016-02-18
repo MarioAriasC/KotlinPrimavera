@@ -26,11 +26,11 @@ import java.sql.Blob
  * Time: 21:27
  */
 
-public class BlobArgumentSetter(val blobSetter: (Int, Blob) -> Unit,
+class BlobArgumentSetter(val blobSetter: (Int, Blob) -> Unit,
                                 override val setter: (Int, InputStream) -> Unit,
                                 override val setter2: (Int, InputStream, Long) -> Unit) : AbstractBlobArgumentSetter<InputStream>(setter, setter2) {
 
-    operator public fun set(index: Int, blob: Blob) {
+    operator fun set(index: Int, blob: Blob) {
         blobSetter(index, blob)
     }
 }

@@ -26,30 +26,30 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
  * Time: 0:49
  */
 
-public fun Any.toSqlParameterSource(): BeanPropertySqlParameterSource {
+fun Any.toSqlParameterSource(): BeanPropertySqlParameterSource {
     return BeanPropertySqlParameterSource(this)
 }
 
-public fun Map<String, Any>.toSqlParameterSource(): MapSqlParameterSource {
+fun Map<String, Any>.toSqlParameterSource(): MapSqlParameterSource {
     return MapSqlParameterSource(this)
 }
 
-operator public fun MapSqlParameterSource.set(paramName: String, value: Any?) {
+operator fun MapSqlParameterSource.set(paramName: String, value: Any?) {
     this.addValue(paramName, value)
 }
 
-operator public fun MapSqlParameterSource.set(paramName: String, sqlType: Int, value: Any?) {
+operator fun MapSqlParameterSource.set(paramName: String, sqlType: Int, value: Any?) {
     this.addValue(paramName, value, sqlType)
 }
 
-operator public fun MapSqlParameterSource.set(paramName: String, sqlType: Int, typeName: String, value: Any?) {
+operator fun MapSqlParameterSource.set(paramName: String, sqlType: Int, typeName: String, value: Any?) {
     this.addValue(paramName, value, sqlType, typeName)
 }
 
-public fun MapSqlParameterSource.addValues(vararg args: Pair<String, Any?>): MapSqlParameterSource {
+fun MapSqlParameterSource.addValues(vararg args: Pair<String, Any?>): MapSqlParameterSource {
     return this.addValues(mapOf(*args))!!
 }
 
-operator public fun MapSqlParameterSource.get(paramName: String): Any {
+operator fun MapSqlParameterSource.get(paramName: String): Any {
     return this.getValue(paramName)!!
 }

@@ -27,24 +27,24 @@ import org.springframework.core.style.ValueStyler
  * Time: 21:21
  */
 
-public val ToStringCreator.append: ToStringCreatorAppendTokens
+val ToStringCreator.append: ToStringCreatorAppendTokens
     get() {
         return ToStringCreatorAppendTokens(this)
     }
 
-public fun ToStringCreator(obj: Any, body: ToStringCreator.() -> Unit): ToStringCreator {
+fun ToStringCreator(obj: Any, body: ToStringCreator.() -> Unit): ToStringCreator {
     val creator = ToStringCreator(obj)
     creator.body()
     return creator
 }
 
-public fun ToStringCreator(obj: Any, styler: ValueStyler, body: ToStringCreator.() -> Unit): ToStringCreator {
+fun ToStringCreator(obj: Any, styler: ValueStyler, body: ToStringCreator.() -> Unit): ToStringCreator {
     val creator = ToStringCreator(obj, styler)
     creator.body()
     return creator
 }
 
-public fun ToStringCreator(obj: Any, styler: ToStringStyler, body: ToStringCreator.() -> Unit): ToStringCreator {
+fun ToStringCreator(obj: Any, styler: ToStringStyler, body: ToStringCreator.() -> Unit): ToStringCreator {
     val creator = ToStringCreator(obj, styler)
     creator.body()
     return creator

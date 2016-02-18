@@ -31,14 +31,14 @@ import java.util.*
  * Date: 21/08/13
  * Time: 22:02
  */
-public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatement) : PreparedStatement by prepareStatement {
+class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatement) : PreparedStatement by prepareStatement {
 
-    public val array: DefaultArgumentSetter<java.sql.Array>
+    val array: DefaultArgumentSetter<java.sql.Array>
         get() {
             return DefaultArgumentSetter { i, v -> setArray(i, v) }
         }
 
-    public val asciiStream: ArgumentWithLengthSetter<InputStream>
+    val asciiStream: ArgumentWithLengthSetter<InputStream>
         get() {
             return ArgumentWithLengthSetter(
                     { i, v -> setAsciiStream(i, v) },
@@ -46,12 +46,12 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setAsciiStream(i, v, l) })
         }
 
-    public val bigDecimal: DefaultArgumentSetter<BigDecimal>
+    val bigDecimal: DefaultArgumentSetter<BigDecimal>
         get() {
             return DefaultArgumentSetter { i, v -> setBigDecimal(i, v) }
         }
 
-    public val binaryStream: ArgumentWithLengthSetter<InputStream>
+    val binaryStream: ArgumentWithLengthSetter<InputStream>
         get() {
             return ArgumentWithLengthSetter(
                     { i, v -> setBinaryStream(i, v) },
@@ -59,7 +59,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setBinaryStream(i, v, l) })
         }
 
-    public val blob: BlobArgumentSetter
+    val blob: BlobArgumentSetter
         get() {
             return BlobArgumentSetter(
                     { i, v -> setBlob(i, v) },
@@ -67,22 +67,22 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setBlob(i, v, l) })
         }
 
-    public val boolean: DefaultArgumentSetter<Boolean>
+    val boolean: DefaultArgumentSetter<Boolean>
         get() {
             return DefaultArgumentSetter { i, v -> setBoolean(i, v) }
         }
 
-    public val byte: DefaultArgumentSetter<Byte>
+    val byte: DefaultArgumentSetter<Byte>
         get() {
             return DefaultArgumentSetter { i, v -> setByte(i, v) }
         }
 
-    public val bytes: DefaultArgumentSetter<ByteArray>
+    val bytes: DefaultArgumentSetter<ByteArray>
         get() {
             return DefaultArgumentSetter { i, v -> setBytes(i, v) }
         }
 
-    public val characterStream: ArgumentWithLengthSetter<Reader>
+    val characterStream: ArgumentWithLengthSetter<Reader>
         get() {
             return ArgumentWithLengthSetter(
                     { i, v -> setCharacterStream(i, v) },
@@ -90,7 +90,7 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setCharacterStream(i, v, l) })
         }
 
-    public val clob: ClobArgumentSetter
+    val clob: ClobArgumentSetter
         get() {
             return ClobArgumentSetter(
                     { i, b -> setClob(i, b) },
@@ -98,41 +98,41 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setClob(i, v, l) })
         }
 
-    public val date: CombinedArgumentSetter<Date, Calendar>
+    val date: CombinedArgumentSetter<Date, Calendar>
         get() {
             return CombinedArgumentSetter(
                     { i, d -> setDate(i, d) },
                     { i, d, c -> setDate(i, d, c) })
         }
 
-    public val double: DefaultArgumentSetter<Double>
+    val double: DefaultArgumentSetter<Double>
         get() {
             return DefaultArgumentSetter { i, v -> setDouble(i, v) }
         }
 
-    public val float: DefaultArgumentSetter<Float>
+    val float: DefaultArgumentSetter<Float>
         get() {
             return DefaultArgumentSetter { i, v -> setFloat(i, v) }
         }
 
-    public val int: DefaultArgumentSetter<Int>
+    val int: DefaultArgumentSetter<Int>
         get() {
             return DefaultArgumentSetter { i, v -> setInt(i, v) }
         }
 
-    public val long: DefaultArgumentSetter<Long>
+    val long: DefaultArgumentSetter<Long>
         get() {
             return DefaultArgumentSetter { i, v -> setLong(i, v) }
         }
 
-    public val nCharacterStream: CombinedArgumentSetter<Reader, Long>
+    val nCharacterStream: CombinedArgumentSetter<Reader, Long>
         get() {
             return CombinedArgumentSetter(
                     { i, r -> setNCharacterStream(i, r) },
                     { i, r, l -> setNCharacterStream(i, r, l) })
         }
 
-    public val nClob: NClobArgumentSetter
+    val nClob: NClobArgumentSetter
         get() {
             return NClobArgumentSetter(
                     { i, b -> setNClob(i, b) },
@@ -140,19 +140,19 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
                     { i, v, l -> setNClob(i, v, l) })
         }
 
-    public val nString: DefaultArgumentSetter<String>
+    val nString: DefaultArgumentSetter<String>
         get() {
             return DefaultArgumentSetter { i, v -> setNString(i, v) }
         }
 
-    public val `null`: CombinedArgumentSetter<Int, String>
+    val `null`: CombinedArgumentSetter<Int, String>
         get() {
             return CombinedArgumentSetter(
                     { i, s -> setNull(i, s) },
                     { i, s, t -> setNull(i, s, t) })
         }
 
-    public val `object`: ObjectArgumentSetter
+    val `object`: ObjectArgumentSetter
         get() {
             return ObjectArgumentSetter(
                     { i, x -> setObject(i, x) },
@@ -162,41 +162,41 @@ public class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatemen
             )
         }
 
-    public val ref: DefaultArgumentSetter<Ref>
+    val ref: DefaultArgumentSetter<Ref>
         get() {
             return DefaultArgumentSetter { i, v -> setRef(i, v) }
         }
 
-    public val rowId: DefaultArgumentSetter<RowId>
+    val rowId: DefaultArgumentSetter<RowId>
         get() {
             return DefaultArgumentSetter { i, v -> setRowId(i, v) }
         }
 
-    public val sqlXml: DefaultArgumentSetter<SQLXML>
+    val sqlXml: DefaultArgumentSetter<SQLXML>
         get() {
             return DefaultArgumentSetter { i, v -> setSQLXML(i, v) }
         }
 
-    public val string: DefaultArgumentSetter<String>
+    val string: DefaultArgumentSetter<String>
         get() {
             return DefaultArgumentSetter { i, v -> setString(i, v) }
         }
 
-    public val time: CombinedArgumentSetter<Time, Calendar>
+    val time: CombinedArgumentSetter<Time, Calendar>
         get() {
             return CombinedArgumentSetter(
                     { i, d -> setTime(i, d) },
                     { i, d, c -> setTime(i, d, c) })
         }
 
-    public val timestamp: CombinedArgumentSetter<Timestamp, Calendar>
+    val timestamp: CombinedArgumentSetter<Timestamp, Calendar>
         get() {
             return CombinedArgumentSetter(
                     { i, d -> setTimestamp(i, d) },
                     { i, d, c -> setTimestamp(i, d, c) })
         }
 
-    public val url: DefaultArgumentSetter<URL>
+    val url: DefaultArgumentSetter<URL>
         get() {
             return DefaultArgumentSetter { i, v -> setURL(i, v) }
         }

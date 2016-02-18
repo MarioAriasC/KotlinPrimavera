@@ -33,8 +33,7 @@ import java.sql.*
  * Date: 20/08/13
  * Time: 23:27
  */
-@ContextConfiguration
-public class JdbcOperationsTest : JdbcTestBase() {
+@ContextConfiguration class JdbcOperationsTest : JdbcTestBase() {
 
     private val select1: String = "$select where id = 1"
     private val selectIdPython = "$selectId where description = 'python'"
@@ -96,7 +95,7 @@ public class JdbcOperationsTest : JdbcTestBase() {
             }
         })
 
-        assertEquals(template.query(select, mapperFunction).size(), 5)
+        assertEquals(template.query(select, mapperFunction).size, 5)
 
         assertEquals(template.query(statementCreator, rsFunction), 1)
 
@@ -114,20 +113,20 @@ public class JdbcOperationsTest : JdbcTestBase() {
 
         assertEquals(template.query({ con: Connection ->
             con.prepareStatement(select)
-        }, mapperFunction).size(), 5)
+        }, mapperFunction).size, 5)
 
         assertEquals(template.query(selectGreaterThan,
                 { stmt: PreparedStatement ->
                     stmt.arguments {
                         int[1] = 1
                     }
-                }, mapperFunction).size(), 4)
+                }, mapperFunction).size, 4)
 
-        assertEquals(template.query(selectGreaterThan, arrayOf(1), intArrayOf(Types.INTEGER), mapperFunction).size(), 4)
+        assertEquals(template.query(selectGreaterThan, arrayOf(1), intArrayOf(Types.INTEGER), mapperFunction).size, 4)
 
-        assertEquals(template.query(selectGreaterThan, arrayOf(1), mapperFunction).size(), 4)
+        assertEquals(template.query(selectGreaterThan, arrayOf(1), mapperFunction).size, 4)
 
-        assertEquals(template.query(selectGreaterThan, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.size(), 4)
+        assertEquals(template.query(selectGreaterThan, 1) { rs, rowNum -> mapperFunction(rs, rowNum) }.size, 4)
 
 
     }

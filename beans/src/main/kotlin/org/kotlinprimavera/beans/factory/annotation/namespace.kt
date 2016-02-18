@@ -18,7 +18,6 @@ package org.kotlinprimavera.beans.factory.annotation
 
 import org.springframework.beans.factory.BeanFactory
 import org.springframework.beans.factory.annotation.BeanFactoryAnnotationUtils
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,12 +26,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory
  * Time: 2:41 PM
  */
 
-//TODO delete
-public fun<T> ConfigurableListableBeanFactory.qualifiedBeanOfType(beanType: Class<T>, qualifier: String): T {
-    return BeanFactoryAnnotationUtils.qualifiedBeanOfType(this, beanType, qualifier)
-}
 
-
-public fun<T> BeanFactory.qualifiedBeanOfType(beanType: Class<T>, qualifier: String): T {
+fun<T> BeanFactory.qualifiedBeanOfType(beanType: Class<T>, qualifier: String): T {
     return BeanFactoryAnnotationUtils.qualifiedBeanOfType(this, beanType, qualifier)
 }

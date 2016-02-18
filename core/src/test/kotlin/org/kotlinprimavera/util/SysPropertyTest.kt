@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mario Arias
+ * Copyright 2015 Mario Arias
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,15 @@
  * limitations under the License.
  */
 
-package org.kotlinprimavera.jdbc.core
+package org.kotlinprimavera.util
 
-import java.io.Reader
-import java.sql.NClob
+import org.testng.Assert
+import org.testng.annotations.Test
 
-/**
- * Created by IntelliJ IDEA.
- * @author Mario Arias
- * Date: 23/08/13
- * Time: 21:27
- */
 
-class NClobArgumentSetter(val blobSetter: (Int, NClob) -> Unit,
-                                 override val setter: (Int, Reader) -> Unit,
-                                 override val setter2: (Int, Reader, Long) -> Unit) : AbstractBlobArgumentSetter<Reader>(setter, setter2) {
-
-    operator fun set(index: Int, clob: NClob) {
-        blobSetter(index, clob)
+class SysPropertyTest {
+    @Test fun setAndGetProperty() {
+        sysProperty["org.kotlinprimavera.test"] = "kotlin"
+        Assert.assertEquals(sysProperty["org.kotlinprimavera.test"] , "kotlin")
     }
 }

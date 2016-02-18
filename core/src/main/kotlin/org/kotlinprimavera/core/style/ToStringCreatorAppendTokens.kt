@@ -24,37 +24,37 @@ import org.springframework.core.style.ToStringCreator
  * Date: 29/08/13
  * Time: 21:09
  */
-public class ToStringCreatorAppendTokens(private val toStringCreator: ToStringCreator) {
+class ToStringCreatorAppendTokens(private val toStringCreator: ToStringCreator) {
 
-    operator public fun set(fieldName: String, value: Byte?) {
+    operator fun set(fieldName: String, value: Byte?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Short?) {
+    operator fun set(fieldName: String, value: Short?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Int?) {
+    operator fun set(fieldName: String, value: Int?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Long?) {
+    operator fun set(fieldName: String, value: Long?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Float?) {
+    operator fun set(fieldName: String, value: Float?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Double?) {
+    operator fun set(fieldName: String, value: Double?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Boolean?) {
+    operator fun set(fieldName: String, value: Boolean?) {
         toStringCreator.append(fieldName, value)
     }
 
-    operator public fun set(fieldName: String, value: Any?) {
+    operator fun set(fieldName: String, value: Any?) {
         toStringCreator.append(fieldName, value)
     }
 }

@@ -22,13 +22,13 @@ package org.kotlinprimavera.jdbc.core
  * Date: 20/08/13
  * Time: 22:59
  */
-public class GetFieldsToken<T>(val withFieldName: (String) -> T, val withIndex: (Int) -> T) {
+class GetFieldsToken<T>(val withFieldName: (String) -> T, val withIndex: (Int) -> T) {
 
-    operator public fun get(columnIndex: Int): T {
+    operator fun get(columnIndex: Int): T {
         return withIndex(columnIndex)
     }
 
-    operator public fun get(columnLabel: String): T {
+    operator fun get(columnLabel: String): T {
         return withFieldName(columnLabel)
     }
 }

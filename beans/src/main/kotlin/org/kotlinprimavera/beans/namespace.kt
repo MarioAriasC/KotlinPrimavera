@@ -37,159 +37,145 @@ import java.lang.reflect.Method
 /**
  * For initialize a var with a Not nullable type, specially util for ```@Autowired``` vars
  */
-public fun<T> uninitialized(): T = null as T
+fun<T> uninitialized(): T = null as T
 
-@Throws(BeanInstantiationException::class)
-public fun<T> Class<T>.instantiate(): T {
+@Throws(BeanInstantiationException::class) fun<T> Class<T>.instantiate(): T {
     return BeanUtils.instantiate(this)
 }
 
 
-@Throws(BeanInstantiationException::class)
-public fun<T> Class<T>.instantiateClass(): T {
+@Throws(BeanInstantiationException::class) fun<T> Class<T>.instantiateClass(): T {
     return BeanUtils.instantiateClass(this)
 }
 
 
-@Throws(BeanInstantiationException::class)
-public fun<T> Constructor<T>.instantiateClass(vararg args: Any): T {
+@Throws(BeanInstantiationException::class) fun<T> Constructor<T>.instantiateClass(vararg args: Any): T {
     return BeanUtils.instantiateClass(this, *args)
 }
 
 
-@Throws(BeanInstantiationException::class)
-public fun<T> Class<*>.instantiateClass(assignableTo: Class<T>): T {
+@Throws(BeanInstantiationException::class) fun<T> Class<*>.instantiateClass(assignableTo: Class<T>): T {
     return BeanUtils.instantiateClass(this, assignableTo)
 }
 
 
-public fun Class<*>.findMethod(methodName: String, vararg paramTypes: Class<*>): Method {
+fun Class<*>.findMethod(methodName: String, vararg paramTypes: Class<*>): Method {
     return BeanUtils.findMethod(this, methodName, *paramTypes)
 }
 
 
-public fun Class<*>.findDeclaredMethod(methodName: String, vararg paramTypes: Class<*>): Method {
+fun Class<*>.findDeclaredMethod(methodName: String, vararg paramTypes: Class<*>): Method {
     return BeanUtils.findDeclaredMethod(this, methodName, *paramTypes)
 }
 
 
-@Throws(IllegalArgumentException::class)
-public fun Class<*>.findMethodWithMinimalParameters(methodName: String): Method {
+@Throws(IllegalArgumentException::class) fun Class<*>.findMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findMethodWithMinimalParameters(this, methodName)
 }
 
 
-@Throws(IllegalArgumentException::class)
-public fun Array<Method>.findMethodWithMinimalParameters(methodName: String): Method {
+@Throws(IllegalArgumentException::class) fun Array<Method>.findMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findMethodWithMinimalParameters(this, methodName)
 }
 
 
-@Throws(IllegalArgumentException::class)
-public fun Class<*>.findDeclaredMethodWithMinimalParameters(methodName: String): Method {
+@Throws(IllegalArgumentException::class) fun Class<*>.findDeclaredMethodWithMinimalParameters(methodName: String): Method {
     return BeanUtils.findDeclaredMethodWithMinimalParameters(this, methodName)
 }
 
 
-public fun String.resolveSignature(clazz: Class<*>): Method {
+fun String.resolveSignature(clazz: Class<*>): Method {
     return BeanUtils.resolveSignature(this, clazz)
 }
 
 
-@Throws(BeansException::class)
-public fun Class<*>.getPropertyDescriptors(): Array<PropertyDescriptor> {
+@Throws(BeansException::class) fun Class<*>.getPropertyDescriptors(): Array<PropertyDescriptor> {
     return BeanUtils.getPropertyDescriptors(this)
 }
 
 
-@Throws(BeansException::class)
-public fun Class<*>.getPropertyDescriptor(propertyName: String): PropertyDescriptor {
+@Throws(BeansException::class) fun Class<*>.getPropertyDescriptor(propertyName: String): PropertyDescriptor {
     return BeanUtils.getPropertyDescriptor(this, propertyName)
 }
 
 
-@Throws(BeansException::class)
-public fun Method.findPropertyForMethod(): PropertyDescriptor {
+@Throws(BeansException::class) fun Method.findPropertyForMethod(): PropertyDescriptor {
     return BeanUtils.findPropertyForMethod(this)
 }
 
 
-@Throws(BeansException::class)
-public fun Method.findPropertyForMethod(clazz: Class<*>): PropertyDescriptor {
+@Throws(BeansException::class) fun Method.findPropertyForMethod(clazz: Class<*>): PropertyDescriptor {
     return BeanUtils.findPropertyForMethod(this, clazz)
 }
 
 
-public fun Class<*>.findEditorByConvention(): PropertyEditor {
+fun Class<*>.findEditorByConvention(): PropertyEditor {
     return BeanUtils.findEditorByConvention(this)
 }
 
 
-public fun String.findPropertyType(vararg beanClasses: Class<*>): Class<*> {
+fun String.findPropertyType(vararg beanClasses: Class<*>): Class<*> {
     return BeanUtils.findPropertyType(this, *beanClasses)
 }
 
 
-public fun PropertyDescriptor.getWriteMethodParameter(): MethodParameter {
+fun PropertyDescriptor.getWriteMethodParameter(): MethodParameter {
     return BeanUtils.getWriteMethodParameter(this)
 }
 
 
-public fun Class<*>.isSimpleProperty(): Boolean {
+fun Class<*>.isSimpleProperty(): Boolean {
     return BeanUtils.isSimpleProperty(this)
 }
 
 
-public fun Class<*>.isSimpleValueType(): Boolean {
+fun Class<*>.isSimpleValueType(): Boolean {
     return BeanUtils.isSimpleValueType(this)
 }
 
 
-@Throws(BeansException::class)
-public fun Any.copyProperties(target: Any) {
+@Throws(BeansException::class) fun Any.copyProperties(target: Any) {
     return BeanUtils.copyProperties(this, target)
 }
 
-@Throws(BeansException::class)
-public fun Any.copyProperties(target: Any, vararg ignoredProperties: String) {
+@Throws(BeansException::class) fun Any.copyProperties(target: Any, vararg ignoredProperties: String) {
     return BeanUtils.copyProperties(this, target, *ignoredProperties)
 }
 
 
-@Throws(BeansException::class)
-public fun Any.copyProperties(target: Any, ignoredProperties: Class<*>) {
+@Throws(BeansException::class) fun Any.copyProperties(target: Any, ignoredProperties: Class<*>) {
     return BeanUtils.copyProperties(this, target, ignoredProperties)
 }
 
-public fun String.getPropertyName(): String {
+fun String.getPropertyName(): String {
     return PropertyAccessorUtils.getPropertyName(this)
 }
 
 
-public fun String.isNestedOrIndexedProperty(): Boolean {
+fun String.isNestedOrIndexedProperty(): Boolean {
     return PropertyAccessorUtils.isNestedOrIndexedProperty(this)
 }
 
 
-public fun String.getFirstNestedPropertySeparatorIndex(): Int {
+fun String.getFirstNestedPropertySeparatorIndex(): Int {
     return PropertyAccessorUtils.getFirstNestedPropertySeparatorIndex(this)
 }
 
 
-public fun String.getLastNestedPropertySeparatorIndex(): Int {
+fun String.getLastNestedPropertySeparatorIndex(): Int {
     return PropertyAccessorUtils.getLastNestedPropertySeparatorIndex(this)
 }
 
-public fun String.matchesProperty(propertyPath: String): Boolean {
+fun String.matchesProperty(propertyPath: String): Boolean {
     return PropertyAccessorUtils.matchesProperty(this, propertyPath)
 }
 
 
-public fun String.canonicalPropertyName(): String {
+fun String.canonicalPropertyName(): String {
     return PropertyAccessorUtils.canonicalPropertyName(this)
 }
 
 
-public fun Array<String>.canonicalPropertyNames(): Array<String> {
+fun Array<String>.canonicalPropertyNames(): Array<String> {
     return PropertyAccessorUtils.canonicalPropertyNames(this)
 }

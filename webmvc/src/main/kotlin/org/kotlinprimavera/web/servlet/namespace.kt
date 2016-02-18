@@ -25,11 +25,11 @@ import org.springframework.web.servlet.ModelAndView
  * Time: 1:24
  */
 
-operator public fun ModelAndView.set(attributeName: String, attributeValue: Any?) {
+operator fun ModelAndView.set(attributeName: String, attributeValue: Any?) {
     this.addObject(attributeName, attributeValue)
 }
 
-public fun ModelAndView.addAllObjects(vararg objects: Pair<String, Any?>): ModelAndView {
+fun ModelAndView.addAllObjects(vararg objects: Pair<String, Any?>): ModelAndView {
     this.addAllObjects(mapOf(*objects))
     return this
 }

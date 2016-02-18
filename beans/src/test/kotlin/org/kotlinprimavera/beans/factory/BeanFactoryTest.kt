@@ -21,13 +21,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Scope
-import org.testng.Assert.assertEquals
-import org.testng.Assert.assertTrue
-import org.testng.Assert.fail
+import org.testng.Assert.*
 import org.testng.annotations.Test
 
 
-public class BeanFactoryTest {
+class BeanFactoryTest {
 
     private val context = AnnotationConfigApplicationContext(TestConfig::class.java)
 
@@ -78,30 +76,30 @@ data class D(val num: Int, val str: String) {
 
 
 @Configuration
-public open class TestConfig {
+open class TestConfig {
 
     @Bean
-    public open fun a(): A {
+    open fun a(): A {
         return A()
     }
 
     @Bean
-    public open fun b(): B {
+    open fun b(): B {
         return B()
     }
 
     @Bean
-    public open fun c1(): C {
+    open fun c1(): C {
         return C(1)
     }
 
     @Bean
-    public open fun c2(): C {
+    open fun c2(): C {
         return C(2)
     }
 
     @Bean @Scope("prototype")
-    public open fun d(num: Int, str: String): D {
+    open fun d(num: Int, str: String): D {
         return D(num, str)
     }
 }

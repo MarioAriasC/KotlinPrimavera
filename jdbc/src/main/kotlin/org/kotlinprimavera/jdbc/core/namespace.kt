@@ -22,7 +22,6 @@ import org.funktionale.option.Option.Some
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.jdbc.core.ResultSetExtractor
-import org.springframework.jdbc.core.RowCallbackHandler
 import org.springframework.jdbc.core.RowMapper
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -34,68 +33,45 @@ import java.sql.ResultSet
  * Time: 23:07
  */
 
-@Suppress("BASE_WITH_NULLABLE_UPPER_BOUND")
-public fun emptyResultToNull<T>(body: () -> T): T? = try {
+@Suppress("BASE_WITH_NULLABLE_UPPER_BOUND") fun <T> emptyResultToNull(body: () -> T): T? = try {
     body()
 } catch(e: EmptyResultDataAccessException) {
     null
 }
 
-public fun emptyResultToOption<T>(body: () -> T): Option<T> = try {
+fun <T> emptyResultToOption(body: () -> T): Option<T> = try {
     Some(body())
 } catch(e: EmptyResultDataAccessException) {
     None
 }
 
-public fun rowMapperObject<T>(rowMapper: (ResultSet, Int) -> T): RowMapper<T> = object : RowMapper<T> {
-    public override fun mapRow(rs: ResultSet, rowNum: Int): T {
-        return rowMapper(rs, rowNum)
-    }
+fun <T> rowMapperObject(rowMapper: (ResultSet, Int) -> T): RowMapper<T> = RowMapper { rs, rowNum -> rowMapper(rs, rowNum) }
 
-}
-
-public inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T {
+inline fun<T> ResultSet.extract(body: ResultSetGetFieldTokens.() -> T): T {
     return ResultSetGetFieldTokens(this).body()
 }
 
-@Deprecated("use ResultSet.extract. Will be deleted in 0.5", ReplaceWith("extract(body)"))
-public fun<T> ResultSet.build(body: ResultSetGetFieldTokens.() -> T): T {
-    return extract(body)
-}
-
-public fun PreparedStatement.arguments(body: PreparedStatementArgumentsSetter.() -> Unit) {
+fun PreparedStatement.arguments(body: PreparedStatementArgumentsSetter.() -> Unit) {
     PreparedStatementArgumentsSetter(this).body()
 }
 
-public fun JdbcOperations.query<T>(sql: String, vararg args: Any, rse: (ResultSet) -> T): T {
-    return this.query(sql, object : ResultSetExtractor<T> {
-        public override fun extractData(rs: ResultSet): T {
-            return rse(rs)
-        }
-    }, *args)
+fun <T> JdbcOperations.query(sql: String, vararg args: Any, rse: (ResultSet) -> T): T {
+    return this.query(sql, ResultSetExtractor<T> { rs -> rse(rs) }, *args)
 }
 
-public fun JdbcOperations.query(sql: String, rse: (ResultSet) -> Unit): Unit {
-    return this.query(sql, object : RowCallbackHandler {
-        override fun processRow(rs: ResultSet) {
-            rse(rs)
-        }
-    })
+fun JdbcOperations.query(sql: String, rse: (ResultSet) -> Unit): Unit {
+    return this.query(sql, { rs -> rse(rs) })
 }
 
-public fun JdbcOperations.query<T>(sql: String, rse: (ResultSet) -> T): T {
-    return this.query(sql, object : ResultSetExtractor<T> {
-        public override fun extractData(rs: ResultSet): T {
-            return rse(rs)
-        }
-    })
+fun <T> JdbcOperations.query(sql: String, rse: (ResultSet) -> T): T {
+    return this.query(sql, ResultSetExtractor<T> { rs -> rse(rs) })
 }
 
-public fun JdbcOperations.query<T>(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): List<T> {
+fun <T> JdbcOperations.query(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): List<T> {
     return this.query(sql, rowMapperObject(rowMapper), *args)
 }
 
-public fun JdbcOperations.queryForObject<T>(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): T {
+fun <T> JdbcOperations.queryForObject(sql: String, vararg args: Any, rowMapper: (ResultSet, Int) -> T): T {
     return this.queryForObject(sql, rowMapperObject(rowMapper), *args)
 }
 

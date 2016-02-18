@@ -19,10 +19,10 @@ package org.kotlinprimavera.jdbc.core.config
 import org.springframework.jdbc.datasource.init.ScriptUtils
 
 
-public class EmbeddedDatabaseTag {
-    public val scripts: MutableList<ScriptTag> = arrayListOf()
+class EmbeddedDatabaseTag {
+    val scripts: MutableList<ScriptTag> = arrayListOf()
 
-    public fun script(location: String,
+    fun script(location: String,
                       encoding: String? = null,
                       separator: String = ScriptUtils.DEFAULT_STATEMENT_SEPARATOR,
                       execution: ExecutionValue = ExecutionValue.INIT) {

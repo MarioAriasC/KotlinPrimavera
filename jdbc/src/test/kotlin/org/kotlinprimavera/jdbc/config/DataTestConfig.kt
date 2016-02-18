@@ -29,10 +29,10 @@ import javax.sql.DataSource
  * Time: 1:26 AM
  */
 @Configuration
-public open class DataTestConfig {
+open class DataTestConfig {
 
     @Bean
-    public open fun dataSource(): DataSource {
+    open fun dataSource(): DataSource {
         return embeddedDatabase(type = EmbeddedDatabaseType.HSQL) {
             script(location = "classpath:schema-hsql.sql")
             script(location = "classpath:test-data.sql")

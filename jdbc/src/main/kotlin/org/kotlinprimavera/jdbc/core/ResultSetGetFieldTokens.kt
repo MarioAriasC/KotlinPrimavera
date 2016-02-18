@@ -28,43 +28,43 @@ import java.sql.*
  * Date: 20/08/13
  * Time: 23:04
  */
-public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet {
-    public val array: GetFieldsToken<java.sql.Array?>
+class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet {
+    val array: GetFieldsToken<java.sql.Array?>
         get() {
             return GetFieldsToken(
                     { columnName -> getArray(columnName) },
                     { columnIndex -> getArray(columnIndex) })
         }
 
-    public val asciiStream: GetFieldsToken<InputStream?>
+    val asciiStream: GetFieldsToken<InputStream?>
         get() {
             return GetFieldsToken(
                     { columnName -> getAsciiStream(columnName) },
                     { columnIndex -> getAsciiStream(columnIndex) })
         }
 
-    public val bigDecimal: GetFieldsToken<BigDecimal?>
+    val bigDecimal: GetFieldsToken<BigDecimal?>
         get() {
             return GetFieldsToken(
                     { columnName -> getBigDecimal(columnName) },
                     { columnIndex -> getBigDecimal(columnIndex) })
         }
 
-    public val binaryStream: GetFieldsToken<InputStream?>
+    val binaryStream: GetFieldsToken<InputStream?>
         get() {
             return GetFieldsToken(
                     { columnName -> getBinaryStream(columnName) },
                     { columnIndex -> getBinaryStream(columnIndex) })
         }
 
-    public val blob: GetFieldsToken<Blob?>
+    val blob: GetFieldsToken<Blob?>
         get() {
             return GetFieldsToken(
                     { columnName -> getBlob(columnName) },
                     { columnIndex -> getBlob(columnIndex) })
         }
 
-    public val boolean: GetFieldsToken<Boolean?>
+    val boolean: GetFieldsToken<Boolean?>
         get() {
             return GetFieldsToken(
                     { columnName -> getBoolean(columnName) },
@@ -72,7 +72,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val byte: GetFieldsToken<Byte?>
+    val byte: GetFieldsToken<Byte?>
         get() {
             return GetFieldsToken(
                     { columnName -> getByte(columnName) },
@@ -80,7 +80,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val bytes: GetFieldsToken<ByteArray?>
+    val bytes: GetFieldsToken<ByteArray?>
         get() {
             return GetFieldsToken(
                     { columnName -> getBytes(columnName) },
@@ -88,7 +88,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val characterStream: GetFieldsToken<Reader?>
+    val characterStream: GetFieldsToken<Reader?>
         get() {
             return GetFieldsToken(
                     { columnName -> getCharacterStream(columnName) },
@@ -96,7 +96,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val clob: GetFieldsToken<Clob?>
+    val clob: GetFieldsToken<Clob?>
         get() {
             return GetFieldsToken(
                     { columnName -> getClob(columnName) },
@@ -104,7 +104,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val date: GetFieldsToken<java.sql.Date?>
+    val date: GetFieldsToken<java.sql.Date?>
         get() {
             return GetFieldsToken(
                     { columnName -> getDate(columnName) },
@@ -112,7 +112,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val double: GetFieldsToken<Double?>
+    val double: GetFieldsToken<Double?>
         get() {
             return GetFieldsToken(
                     { columnName -> getDouble(columnName) },
@@ -120,7 +120,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val float: GetFieldsToken<Float?>
+    val float: GetFieldsToken<Float?>
         get() {
             return GetFieldsToken(
                     { columnName -> getFloat(columnName) },
@@ -128,7 +128,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val int: GetFieldsToken<Int?>
+    val int: GetFieldsToken<Int?>
         get() {
             return GetFieldsToken(
                     { columnName -> getInt(columnName) },
@@ -136,7 +136,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val long: GetFieldsToken<Long?>
+    val long: GetFieldsToken<Long?>
         get() {
             return GetFieldsToken(
                     { columnName -> getLong(columnName) },
@@ -144,7 +144,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val nCharacterStream: GetFieldsToken<Reader?>
+    val nCharacterStream: GetFieldsToken<Reader?>
         get() {
             return GetFieldsToken(
                     { columnName -> getNCharacterStream(columnName) },
@@ -152,7 +152,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val nClob: GetFieldsToken<NClob?>
+    val nClob: GetFieldsToken<NClob?>
         get() {
             return GetFieldsToken(
                     { columnName -> getNClob(columnName) },
@@ -160,7 +160,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val nString: GetFieldsToken<String?>
+    val nString: GetFieldsToken<String?>
         get() {
             return GetFieldsToken(
                     { columnName -> getNString(columnName) },
@@ -168,7 +168,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val ref: GetFieldsToken<Ref?>
+    val ref: GetFieldsToken<Ref?>
         get() {
             return GetFieldsToken(
                     { columnName -> getRef(columnName) },
@@ -176,7 +176,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val rowId: GetFieldsToken<RowId?>
+    val rowId: GetFieldsToken<RowId?>
         get() {
             return GetFieldsToken(
                     { columnName -> getRowId(columnName) },
@@ -184,7 +184,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val short: GetFieldsToken<Short?>
+    val short: GetFieldsToken<Short?>
         get() {
             return GetFieldsToken(
                     { columnName -> getShort(columnName) },
@@ -192,7 +192,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val SQLXML: GetFieldsToken<SQLXML?>
+    val SQLXML: GetFieldsToken<SQLXML?>
         get() {
             return GetFieldsToken(
                     { columnName -> getSQLXML(columnName) },
@@ -200,7 +200,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val string: GetFieldsToken<String?>
+    val string: GetFieldsToken<String?>
         get() {
             return GetFieldsToken(
                     { columnName -> getString(columnName) },
@@ -208,7 +208,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val time: GetFieldsToken<Time?>
+    val time: GetFieldsToken<Time?>
         get() {
             return GetFieldsToken(
                     { columnName -> getTime(columnName) },
@@ -216,7 +216,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val timestamp: GetFieldsToken<Timestamp?>
+    val timestamp: GetFieldsToken<Timestamp?>
         get() {
             return GetFieldsToken(
                     { columnName -> getTimestamp(columnName) },
@@ -224,7 +224,7 @@ public class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by result
         }
 
 
-    public val URL: GetFieldsToken<URL?>
+    val URL: GetFieldsToken<URL?>
         get() {
             return GetFieldsToken(
                     { columnName -> getURL(columnName) },

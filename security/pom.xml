@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.5_beta</version>
+        <version>0.5</version>
     </parent>
     <artifactId>security</artifactId>
     <name>KotlinPrimavera Security Module</name>
     <packaging>jar</packaging>
-    <version>0.5_beta</version>
+    <version>0.5</version>
     <dependencies>
         <dependency>
             <groupId>org.springframework.security</groupId>

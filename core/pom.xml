@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.kotlinprimavera</groupId>
         <artifactId>parent</artifactId>
-        <version>0.5_beta</version>
+        <version>0.5</version>
     </parent>
     <artifactId>core</artifactId>
     <name>KotlinPrimavera Core Module</name>
     <packaging>jar</packaging>
-    <version>0.5_beta</version>
+    <version>0.5</version>
     <dependencies>
 
     </dependencies>

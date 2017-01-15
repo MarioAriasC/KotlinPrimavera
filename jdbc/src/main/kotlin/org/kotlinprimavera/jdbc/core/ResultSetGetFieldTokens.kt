@@ -21,6 +21,7 @@ import java.io.Reader
 import java.math.BigDecimal
 import java.net.URL
 import java.sql.*
+import java.util.UUID
 
 /**
  * Created by IntelliJ IDEA.
@@ -229,5 +230,12 @@ class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet {
             return GetFieldsToken(
                     { columnName -> getURL(columnName) },
                     { columnIndex -> getURL(columnIndex) })
+        }
+
+    val uuid : GetFieldsToken<UUID?>
+        get() {
+            return GetFieldsToken(
+                { columnName -> if (getString(columnName) == null) null else UUID.fromString(getString(columnName)) },
+                { columnIndex -> if (getString(columnIndex) == null) null else UUID.fromString(getString(columnIndex)) })
         }
 }

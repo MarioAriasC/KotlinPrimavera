@@ -200,4 +200,9 @@ class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatement) : Pr
         get() {
             return DefaultArgumentSetter { i, v -> setURL(i, v) }
         }
+
+    val uuid : DefaultArgumentSetter<UUID>
+        get() {
+            return DefaultArgumentSetter { i, v -> setString(i, v.toString())  }
+        }
 }

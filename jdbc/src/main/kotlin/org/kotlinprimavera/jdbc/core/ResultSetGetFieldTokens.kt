@@ -21,6 +21,7 @@ import java.io.Reader
 import java.math.BigDecimal
 import java.net.URL
 import java.sql.*
+import java.time.LocalDateTime
 
 /**
  * Created by IntelliJ IDEA.
@@ -221,6 +222,13 @@ class ResultSetGetFieldTokens(resultSet: ResultSet) : ResultSet by resultSet {
             return GetFieldsToken(
                     { columnName -> getTimestamp(columnName) },
                     { columnIndex -> getTimestamp(columnIndex) })
+        }
+
+    val localDateTime : GetFieldsToken<LocalDateTime?>
+        get() {
+            return GetFieldsToken(
+                { columnName -> getTimestamp(columnName)?.toLocalDateTime() },
+                { columnIndex -> getTimestamp(columnIndex)?.toLocalDateTime() })
         }
 
 

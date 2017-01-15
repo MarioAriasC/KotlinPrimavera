@@ -23,6 +23,7 @@ import java.math.BigDecimal
 import java.net.URL
 import java.sql.*
 import java.sql.Date
+import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -194,6 +195,11 @@ class PreparedStatementArgumentsSetter(prepareStatement: PreparedStatement) : Pr
             return CombinedArgumentSetter(
                     { i, d -> setTimestamp(i, d) },
                     { i, d, c -> setTimestamp(i, d, c) })
+        }
+
+    val localDateTime : DefaultArgumentSetter<LocalDateTime>
+        get() {
+            return DefaultArgumentSetter { i, v -> setTimestamp(i, Timestamp.valueOf(v)) }
         }
 
     val url: DefaultArgumentSetter<URL>
